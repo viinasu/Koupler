@@ -1,0 +1,32 @@
+{
+  "name": "Koupler",
+  "version": "0.0.1",
+  "description": "couples' tinder",
+  "main": "app.js",
+  "repository": "",
+  "license": "Proprietary",
+  "private": true,
+  "devDependencies": {
+    "gulp": "^3.8.5",
+    "gulp-if": "^1.2.5",
+    "gulp-jshint": "^1.6.3",
+    "gulp-karma": "0.0.4",
+    "gulp-nodemon": "^1.0.4",
+    "gulp-shell": "^0.2.7"
+  },
+  "dependencies": {
+    "bcryptjs": "2.2.1",
+    "bluebird": "1.0.8",
+    "body-parser": "^1.5.2",
+    "express": "~4.0.0",
+    "express-jwt": "3.0.1",
+    "express-session": "^1.7.2",
+    "jsonwebtoken": "5.0.5",
+    "karma": "0.13.9",
+    "morgan": "^1.6.1",
+    "mysql": "2.9.0",
+    "nodemon": "^1.2.1",
+    "q": "^1.4.1",
+    "request": "^2.34.0"
+  }
+}
