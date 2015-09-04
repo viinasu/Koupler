@@ -1,0 +1,22 @@
+<!--
+THIS PAGE IS THE RESULTS PAGE.
+It will show the photo and profile info of the matching couple.
+-->
+
+<div id='matched' controller='userCtrl'>
+  <h1>You have been matched with {{coupleName}}!</h1>
+  <img id='matchedPhoto' ng-src='PHOTO.LOCATION.IN.DB.FROM.JACKSON' height='350' width='350'></img>
+<!-- TODO: fix Ctrl with right path then modify the ngExpressions -->
+  <div>
+  <ul class='coupleDetails' style="list-style-type:none">
+    <li>
+      <a id='coupleName'>Couple Name: {{coupleName}}</a>
+      <a>Interest: {{Interest}}</a>
+      <a>Email: {{Email}}</a>
+      <a>Phone: {{Phone}}</a>
+    </li>
+  </ul>
+<!--FEATURE:
+<h2 ng-href="mailto:{{email.address}}?subject={{email.subject}}&body={{email.body}}">Email this couple!</h2> -->
+  </div>
+</div>
