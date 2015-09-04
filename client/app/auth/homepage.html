@@ -1,0 +1,24 @@
+
+<div id = 'signin' >
+  <h3>Login Here</h3>
+  <form name = "signinForm" ng-submit = 'signin()'>
+    <input type = 'text' ng-model ='couple.username' placeholder = 'username'>
+    <input type = 'password' ng-model = 'couple.password' placeholder = 'password'>
+    <button>Sign In</button>
+  </form>
+</div>
+
+<div id = 'signup'> 
+  <h3>Signup Here</h3>
+  <form name = 'signupForm' ng-submit = 'signup()'>
+    <input type = 'text' ng-model = 'couple.username' placeholder = 'username'>
+    <input type = 'password' ng-model = 'couple.password' placeholder = 'password'><br/>
+    <input type = 'text' ng-model = 'couple.firstName1' placeholder = 'Partner 1 First Name'>
+    <input type = 'text' ng-model = 'couple.lastName1' placeholder = 'Partner 1 Last Name'><br/>
+    <input type = 'text' ng-model = 'couple.firstName2' placeholder = 'Partner 2 First Name'>
+    <input type = 'text' ng-model = 'couple.lastName2' placeholder = 'Partner 2 Last Name'><br/>
+    <input type = 'text' ng-model = 'couple.email' placeholder = 'Email Address'>
+    <input type = 'text' ng-model = 'couple.phoneNumber' placeholder = 'Contact Number'>
+    <button>Sign Up</button>
+  </form>
+</div>
