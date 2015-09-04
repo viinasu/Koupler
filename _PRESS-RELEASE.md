@@ -1,4 +1,4 @@
-# Project Name #
+# Koupler #
 
 <!-- 
 > This material was originally posted [here](http://www.quora.com/What-is-Amazons-approach-to-product-development-and-product-management). It is reproduced here for posterities sake.
@@ -17,28 +17,25 @@ Once the project moves into development, the press release can be used as a touc
  -->
  
 ## Heading ##
-  > Name the product in a way the reader (i.e. your target customers) will understand.
+  Coupler
 
 ## Sub-Heading ##
-  > Describe who the market for the product is and what benefit they get. One sentence only underneath the title.
+A quick way for couples to connect with other couples to do couple stuff. 
 
 ## Summary ##
-  > Give a summary of the product and the benefit. Assume the reader will not read anything else so make this paragraph good.
+    In a modern world where there are hundreds of apps to help single people find connections, there is a distinct lack of dating apps for couples. Our app helps to connect couples who want to engage with, befriend, and enjoy the company of other couples. 
 
 ## Problem ##
-  > Describe the problem your product solves.
-
+    Whether you and your partner are new in town or just looking for new friends, it's difficult to schedule and commit to meeting other couples to hang out with. 
 ## Solution ##
-  > Describe how your product elegantly solves the problem.
-
+    We will match couples across a region based on interest and availability. 
 ## Quote from You ##
-  > A quote from a spokesperson in your company.
-
+    "It's not couples tinder..."
 ## How to Get Started ##
-  > Describe how easy it is to get started.
+  With just 2 clicks, you'll have a match for the time slot you and your partner specified! 
 
 ## Customer Quote ##
-  > Provide a quote from a hypothetical customer that describes how they experienced the benefit.
+  My 
 
 ## Closing and Call to Action ##
   > Wrap it up and give pointers where the reader should go next.
