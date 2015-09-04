@@ -29,3 +29,11 @@ angular.module('koupler', [
     // of interceptors. Think of it like middleware for your ajax calls
     $httpProvider.interceptors.push('AttachTokens');
 })
+// MAX LOOK OVER THIS
+.run(function($rootScope, $location, Auth)) {
+  $rootScope.$on('$routeChangeStart', function(evt, next, current) {
+    if (next.$$route && next.$$route.authenticate && !Auth.isAuth()) {
+      $location.path('/signin');
+    }
+  })
+}
