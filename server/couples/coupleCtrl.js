@@ -1,33 +1,44 @@
 var Couple = require('./coupleModel.js'),
-    Q    = require('q');
+var bcrypt = require('bcryptjs');
+var jwt = require('jsonwebtoken');
+var bodyParser = require('body-parser');
+
 
 // refactored for couples from shortly angular
 
 module.exports = {
-  signin: function (req, res, next) {
-    var couplename = req.body.couplename,
-        password = req.body.password;
-
-    var findCouple = Q.nbind(Couple.findOne, Couple);
-    findCouple({couplename: couplename})
-      .then(function (couple) {
-        if (!couple) {
-          next(new Error('Couple does not exist'));
-        } else {
-          return couple.comparePasswords(password)
-            .then(function(foundCouple) {
-              if (foundCouple) {
-                var token = jwt.encode(couple, 'secret');
-                res.json({token: token});
-              } else {
-                return next(new Error('No couple'));
-              }
-            });
+  signup: function (req, res, next) {
+    //generating hash of password
+    bcrypt.genSalt(10, function(err, salt){
+      if(err){
+        console.error(err);
+      }
+      bcrypt.hash(req.body.password, salt, function(err, hash){
+        if(err){
+          console.error(err);
         }
+        var params = [req.body.username, req.body.password,
+                          req.body.lastName1, req.body.firstName1, 
+                           req.body.lastName2, req.body.firstName2,
+                          req.body.email, req.body.phoneNumber];
+                          //we NEED TO ADD THE PHOTO FILEPATH!!!!!!!
+        //inserting data into the DB
+        Couple.postCouple(params, function(err, result){
+          if(err){
+            console.error(err);
+          }
+          //creating token with username as payload
+          var jwtSecret = 'a;lskdjf;laksdjf';
+          var token = jwt.sign({
+            username: req.body.usernameSignup
+          }, jwtSecret);
+          res.send({
+            //sending back token for client processing
+            token: token
+          });
+        })
       })
-      .fail(function (error) {
-        next(error);
-      });
+    })
   },
 
 

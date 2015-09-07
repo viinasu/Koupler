@@ -13,5 +13,4 @@ module.exports = function (app, express) {
   require('../couples/coupleRoute.js')(coupleRouter);
   require('../matches/matchRoutes.js')(matchRouter);
 
-
 };
