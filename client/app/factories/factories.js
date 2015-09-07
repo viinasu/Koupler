@@ -1,4 +1,4 @@
-angular.module('koupler.services', [])
+angular.module('koupler.factories', [])
 
 .factory('userFactory', function($http){
   var getAllUsersDetails = function(){
@@ -8,7 +8,7 @@ angular.module('koupler.services', [])
     })
     .then(function(data){
       return data;
-    })
+    });
   };
 
   return {
@@ -16,23 +16,33 @@ angular.module('koupler.services', [])
   };
 })
 
-.factory('Activities', function($http) {
+.factory('Activities', function($scope, $window, $location, $http) {
   var activities = [
-                    'Hiking',
-                    'Dinner',
-                    'Opera',
-                    'Dancing',
-                    'Music Show'
+                    {'name': 'Hiking'},
+                    {'name': 'Dinner'},
+                    {'name': 'Opera'},
+                    {'name': 'Dancing'}, 
+                    {'name': 'Music Show'}
                   ];
+  var getActivities = function() {
+    //make a get request to the server for for all activities in act table
+      //populate activities array with these
+  };
   var getCouples = function (activity) {
-    //need to ask the server
-    //to ask the database
-    //for all of the couples table
-    //and all of the couples/activities table
+    var token = $window.localStorage.getItem('JWT');
+    $http.post('/activities/match', {activity: activity, token: token})
+      .then(function(response) {
+        console.log('couple sent back by database is ' + response.data.couple);
+        $window.localStorage.setItem('coupleChosen', response.data.couple); //expected to save chosenCouple in state of the app
+        $location.path('/match');
+      }, function(response) {
+        console.log('sorry, there was an error ', response.statusText);
+      });
   };
 
   return {
     activities: activities,
+    getActivities: getActivities,
     getCouples: getCouples
-  }
-})
+  };
+});
