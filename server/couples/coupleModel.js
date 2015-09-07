@@ -13,7 +13,7 @@ var queryDb = function(queryString, params, callback) {
 module.exports = {
   
   postCouple: function(params, callback) {
-    var queryString = 'INSERT INTO couples (person_1_last_name, person_1_first_name, person_2_last_name, person_2_first_name, username, hash, email, phone, photo_filepath) VALUES (?, ?, ?, ?, ?, ?, ?, ?);';
+    var queryString = 'INSERT INTO couples (username, hash, person_1_last_name, person_1_first_name, person_2_last_name, person_2_first_name, email, phone, photo_filepath) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?);';
     queryDb(queryString, params, callback);
   }
 
