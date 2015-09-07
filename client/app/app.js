@@ -17,7 +17,7 @@ angular.module('koupler', [
       authenticate: true,
     })
     .when('/match', {
-      templateUrl: 'app/activitPickerCtrl/match.html',
+      templateUrl: 'app/activityPickerCtrl/match.html',
       controller: 'UserCtrl',
       authenticate: true,
     })
@@ -30,10 +30,10 @@ angular.module('koupler', [
     $httpProvider.interceptors.push('AttachTokens');
 })
 // MAX LOOK OVER THIS
-.run(function($rootScope, $location, Auth)) {
+.run(function($rootScope, $location, AuthTokenFactory)) {
   $rootScope.$on('$routeChangeStart', function(evt, next, current) {
-    if (next.$$route && next.$$route.authenticate && !Auth.isAuth()) {
-      $location.path('/signin');
+    if (next.$$route && next.$$route.authenticate && !AuthTokenFactory.isAuth()) {
+      $location.path('/');
     }
   })
 }

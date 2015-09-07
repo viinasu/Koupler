@@ -9,10 +9,8 @@ angular.module('koupler.auth', [])
       $scope.signin = function(){
         $http.post('/signin', {username: $scope.usernameSignIn, password: $scope.passwordSignIn})
             .then(function (response){
-            console.log(response.data.user[$scope.username]);
-           $scope.welcome = response.data.user[$scope.username];
             AuthTokenFactory.setToken(response.data.token);
-            return response; ///I don't think I need---test. 
+            $location.path('/activities');
         }, 
         function(err){
           console.log(err);
@@ -49,7 +47,8 @@ angular.module('koupler.auth', [])
 
       return {
         getToken: getToken,
-        setToken: setToken
+        setToken: setToken,
+        isAuth: isAuth
       };
 
       function getToken(){
@@ -62,5 +61,9 @@ angular.module('koupler.auth', [])
         } else {
           $window.localStorage.removeItem(key);
         }
+      }
+
+      function isAuth(){
+        return !! $window.localStorage.getItem(key);
       }
     });
