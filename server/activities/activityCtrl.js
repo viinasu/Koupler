@@ -11,30 +11,26 @@ module.exports = {
 
   matchCouple: function(req, res, next) {
     //parse request for activity chosen
-    console.log('REQ.BODY', req.body);
     var activityChosen = req.body.activity.name;
-    var activityDate = Date.now();
-    var couple_id; /* do some stuff to the token */
+    var activityDate = Date.now();  // Refactor to SQL format type
+    var token = req.body.token;
+    var decodedToken = jwt.decode(token);
+    var username = decodedToken.username;
+
     activity.getMatches([activityChosen], function(data) {
       var couple = data[Math.floor(Math.random() * data.length - 1)];
-      console.log('response from db is ', couple);
       res.send({
         couple: couple
       });
     });
-    var token = req.body.token;
-    console.log('token from client', token);
-    var decodedToken = jwt.decode(token);
-    console.log('decoded token ', decodedToken);
-    var username = decodedToken.username;
-    console.log(username);
-    //make call to activityModel's postMatch fn
-    activity.postMatch([username, activityChosen, activityDate], function(data) {
-      //all good, couple inserted
+
+    // Insert couple's activity decision in database
+    activity.postMatch([username, activityChosen, activityDate], function(err, data) {
+      if(err) console.log(err);
+
+      if(data == true) {
+        console.log('Couple activity logged successfully');
+      }
     });
-  },
-
-  getMatch: function(req, res, next) {
-
   }
 };
