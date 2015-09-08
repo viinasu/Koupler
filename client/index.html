@@ -1,21 +1,23 @@
 <!DOCTYPE html>
-<html lang="en" ng-app="koupler">
-<head>
-  <meta charset="UTF-8">
-  <title>Koupler</title>
-  <link rel="stylesheet" type="text/css" href="styles/style.css" />
-</head>
-<body>
-<h1> Koupler </h1>
+<html ng-app="koupler">
+  <head>
+    <meta charset="UTF-8">
+    <title>Koupler</title>
+    <link rel="stylesheet" type="text/css" href="styles/style.css" />
+  </head>
+  <body>
+    <h1> Koupler </h1>
 
-<div ng-view></div>
+    <div ng-view></div>
 
-<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.4/angular.min.js"></script>
+    <script src="lib/angular/angular.js"></script>
+    <script src="lib/angular-route/angular-route.js"></script>
 
-<script src="app/auth/auth.js"></script>
-<script src="app/activityPickerCtrl/activityPickerCtrl.js"></script>
-<script src="app/factories/factories.js"></script>
-<script src="app/app.js"></script>
+    <script src="app/auth/auth.js"></script>
+    <script src="app/activityPickerCtrl/activityPickerCtrl.js"></script>
+    <script src="app/controllers/users.js"></script>
+    <script src="app/factories/factories.js"></script>
+    <script src="app/app.js"></script>
   
-</body>
+  </body>
 </html>
