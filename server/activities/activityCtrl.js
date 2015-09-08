@@ -11,11 +11,12 @@ module.exports = {
 
   matchCouple: function(req, res, next) {
     //parse request for activity chosen
+    console.log('REQ.BODY', req.body);
     var activityChosen = req.body.activity.name;
     var activityDate = Date.now();
     var couple_id; /* do some stuff to the token */
     activity.getMatches([activityChosen], function(data) {
-      var couple = data[0]; //could be randomized
+      var couple = data[Math.floor(Math.random() * data.length - 1)];
       console.log('response from db is ', couple);
       res.send({
         couple: couple
