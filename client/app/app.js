@@ -9,7 +9,7 @@ angular.module('koupler', [
   $routeProvider
     .when('/', {
       templateUrl: 'app/auth/homepage.html',
-      controller: 'AuthController'
+      controller: 'AuthCtrl'
     })
     .when('/activities', {
       templateUrl: 'app/activityPickerCtrl/activityPicker.html',
@@ -27,13 +27,12 @@ angular.module('koupler', [
 
     // We add our $httpInterceptor into the array
     // of interceptors. Think of it like middleware for your ajax calls
-    $httpProvider.interceptors.push('AttachTokens');
+    // $httpProvider.interceptors.push('AttachTokens');
 })
-// MAX LOOK OVER THIS
-.run(function($rootScope, $location, AuthTokenFactory)) {
+.run(function($rootScope, $location, AuthTokenFactory) {
   $rootScope.$on('$routeChangeStart', function(evt, next, current) {
     if (next.$$route && next.$$route.authenticate && !AuthTokenFactory.isAuth()) {
       $location.path('/');
     }
-  })
-}
+  });
+});
