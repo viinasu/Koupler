@@ -18,7 +18,7 @@ angular.module('koupler', [
     })
     .when('/match', {
       templateUrl: 'app/activityPickerCtrl/match.html',
-      controller: 'UserCtrl',
+      controller: 'CouplesCtrl',
       authenticate: true,
     })
     .otherwise({

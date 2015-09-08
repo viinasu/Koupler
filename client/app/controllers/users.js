@@ -1,18 +1,26 @@
 angular.module('koupler.couples',[])
 
-.controller('userCtrl', function($scope, usersFactory){
-  $scope.data = {};
-  $scope.getDetails = function(){
-    Users.getAllUsersDetails()
-         .then(function(deets){
-          //TODO: map out the response from the server
-            $scope.data.deet1 = deets.deet1;
-            $scope.data.deet2 = deets.deet2;
-            $scope.data.deet3 = deets.deet3;
-         })
-         .catch(function(error){
-            console.error(error);
-         })
-  }
-  $scope.getDetails();
+//ctrl name changed from useCtrl to couplesCtrl
+.controller('CouplesCtrl', function($scope, $window){
+ $scope.data = {};
+ $scope.coupleName = $window.localStorage.getItem('coupleUsername');
+ $scope.data.name = $window.localStorage.getItem('coupleFirstName1')
+                     + ' & ' 
+                     +  $window.localStorage.getItem('coupleFirstName2');
+ $scope.data.email =  $window.localStorage.getItem('email');
+ $scope.data.phone =  $window.localStorage.getItem('phone');
+ $scope.data.photo =  $window.localStorage.getItem('photo');
+ console.log('photo file path', $scope.data.photo);
+
+ $scope.getCouple = function(){
+   // console.log($window.localStorage.getItem('coupleUsername'));
+   // $scope.coupleName = $window.localStorage.getItem('coupleUsername');
+   // $scope.data.name = $window.localStorage.getItem('coupleFirstName1');
+   //                     + ' & ' 
+   //                     + matchedCouple.person_2_first_name;
+   // $scope.data.email = matchedCouple.email;
+   // $scope.data.phone = matchedCouple.phone;
+ };
+
+ // $scope.getCouple();
 });

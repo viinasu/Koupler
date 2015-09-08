@@ -33,6 +33,8 @@ angular.module('koupler.auth', [])
       })
       .then(function(response) {
         AuthTokenFactory.setToken(response.data.token);
+        console.log('the token from auth controller is ', response.data.token);
+        console.log('the decoded from auth controller is ', response.data.decoded);
         $location.path('/activities');
       }, 
       function(err){

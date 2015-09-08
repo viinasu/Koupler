@@ -14,22 +14,21 @@ module.exports = {
     var activityChosen = req.body.activity.name;
     var activityDate = Date.now();
     var couple_id; /* do some stuff to the token */
-    activity.getMatches([activityChosen], function(err, data) {
-      if (err) {
-        console.error(err);
-      }
-      console.log(data);
-    var token = req.body.token;
-    var decode = jwt.decode(token);
-      couple = data[0];
+    activity.getMatches([activityChosen], function(data) {
+      var couple = data[0]; //could be randomized
+      console.log('response from db is ', couple);
       res.send({
-        decode: decode,
-        username: username.decode,
         couple: couple
       });
     });
+    var token = req.body.token;
+    console.log('token from client', token);
+    var decodedToken = jwt.decode(token);
+    console.log('decoded token ', decodedToken);
+    var username = decodedToken.username;
+    console.log(username);
     //make call to activityModel's postMatch fn
-    activity.postMatch([couple_id, activityChosen, activityDate], function(data) {
+    activity.postMatch([username, activityChosen, activityDate], function(data) {
       //all good, couple inserted
     });
   },

@@ -18,6 +18,7 @@ module.exports = {
   }
 
   , getMatches: function(params, callback) {
+    console.log('PARAMS FOR QS ARE: ', params);
     var queryString = 'SELECT c.username, c.person_1_first_name, c.person_2_first_name, c.email, c.phone, c.photo_filepath, a.activity FROM couples c JOIN activities a ON c.username = a.username WHERE a.activity = ?;';
     queryDb(queryString, params, callback);
   }

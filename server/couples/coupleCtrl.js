@@ -32,11 +32,12 @@ module.exports = {
           //creating token with username as payload
           var jwtSecret = 'a;lskdjf;laksdjf';
           var token = jwt.sign({
-            username: req.body.usernameSignup
+            username: req.body.username
           }, jwtSecret);
           res.send({
             //sending back token for client processing
-            token: token
+            token: token,
+            decoded: jwt.decode(token)
           });
         });
       });
