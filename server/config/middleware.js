@@ -14,6 +14,7 @@ module.exports = function (app, express) {
 
   // Render client/index.html upon receiving request
   app.use(express.static(__dirname + './../../client'));
+  app.use(express.static(__dirname + './../assets'));
 
   app.use('/couples', coupleRouter);
   app.use('/activities', activityRouter);

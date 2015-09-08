@@ -23,7 +23,7 @@ module.exports = {
                       req.body.firstName2,
                       req.body.email, 
                       req.body.phoneNumber,
-                      '../assets/m1.png'];
+                      './m1.png'];
         //inserting data into the DB
         couple.postCouple(params, function(err, result) {
           if(err){
