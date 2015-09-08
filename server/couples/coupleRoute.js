@@ -1,5 +1,4 @@
-var coupleController = require('./coupleCtrl.js');
-
+var coupleCtrl = require('./coupleCtrl.js');
 
 module.exports = function (app) {
   // app === userRouter injected from middlware.js
