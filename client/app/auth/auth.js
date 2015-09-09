@@ -44,30 +44,4 @@ angular.module('koupler.auth', [])
     AuthTokenFactory.setToken();
   };
 
-})
-
-.factory('AuthTokenFactory', function($window) {
-  var key = 'JWT';
-
-  return {
-    getToken: getToken,
-    setToken: setToken,
-    isAuth: isAuth
-  };
-
-  function getToken(){
-    return $window.localStorage.getItem(key);
-  }
-
-  function setToken(token){
-    if(token){
-      $window.localStorage.setItem(key, token)
-    } else {
-      $window.localStorage.removeItem(key);
-    }
-  }
-
-  function isAuth(){
-    return !! $window.localStorage.getItem(key);
-  }
 });
