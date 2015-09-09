@@ -29,7 +29,6 @@ module.exports = {
     
     return activity.getActivities([username, username], function(err, data) {
       var couple = data[Math.floor(Math.random() * (data.length - 1))];
-      console.log(couple);
       res.send({couple: couple});
     });
   }

@@ -4,13 +4,16 @@ It will show the photo and profile info of the matching couple.
 -->
 
 <div id='matched'>
- <h1>You have been matched with {{ coupleName }}!</h1>
- <img id='matchedPhoto' ng-src='{{data.photo}}' height='350' width='350'></img>
+ <h1>You have been matched with {{ data.person_1_first_name }} & {{ data.person_2_first_name }}!</h1>
+     <div ng-controller = 'AuthCtrl'>
+      <button ng-click = 'signout()'>Sign Out</button>
+    </div>
+ <img id='matchedPhoto' ng-src='{{ data.photo_filepath }}' height='350' width='350'></img>
 <!-- TODO: fix Ctrl with right path then modify the ngExpressions -->
  <div>
  <ul class='coupleDetails' style="list-style-type:none">
    <li>
-     <a id='coupleName'>Couple Name: {{ data.name }}</a>
+     <a id='coupleName'>Couple Name: {{ data.person_1_first_name }} & {{ data.person_2_first_name }}</a>
      <a>Email: {{ data.email }}</a>
      <a>Phone: {{ data.phone }}</a>
    </li>
