@@ -1,7 +1,6 @@
 var activityCtrl = require('./activityCtrl');
 
 module.exports = function(app) {
-  app.get('/', activityCtrl.getActivities);
-  app.route('/match')
-     .post(activityCtrl.matchCouple)
+  app.get('/match', activityCtrl.getActivities);
+  app.post('/match', activityCtrl.postActivity);
 };

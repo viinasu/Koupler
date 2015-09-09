@@ -1,10 +1,13 @@
 <div id="container">
+    <div ng-controller = 'AuthCtrl'>
+      <button ng-click = 'signout()'>Sign Out</button>
+    </div>
   <h1 id="title"> What Do You Want To Do Today? </h1>
 
   <div class="activities">
     <div class="activity" 
         ng-repeat="activity in activities" 
-        ng-click="getCouples(activity)">
+        ng-click="postActivity(activity)">
         {{ activity.name }}
     </div>
   </div>
