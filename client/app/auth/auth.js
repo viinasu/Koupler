@@ -8,8 +8,8 @@ angular.module('koupler.auth', [])
   //To Do add post request handlers to factories.js 
   $scope.signin = function() {
     $http.post('/couples/signin', {
-        username: $scope.usernameSignIn, 
-        password: $scope.passwordSignIn
+        username: $scope.usernameSignin, 
+        password: $scope.passwordSignin
       })
       .then(function (response) {
         AuthTokenFactory.setToken(response.data.token);
@@ -33,8 +33,6 @@ angular.module('koupler.auth', [])
       })
       .then(function(response) {
         AuthTokenFactory.setToken(response.data.token);
-        console.log('the token from auth controller is ', response.data.token);
-        console.log('the decoded from auth controller is ', response.data.decoded);
         $location.path('/activities');
       }, 
       function(err){

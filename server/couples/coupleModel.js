@@ -1,12 +1,12 @@
 var dbConnection = require('../db/index.js');
 
 var queryDb = function(queryString, params, callback) {
-  dbConnection.query(queryString, params, function(err, results) {
+  dbConnection.query(queryString, params, function(err, data) {
     if(err) {
-      console.error('Database Error: ' + err);
+      console.error('Database ' + err);
     }
 
-    callback(results);
+    callback(err, data);
   });
 };
 
@@ -17,7 +17,7 @@ module.exports = {
     queryDb(queryString, params, callback);
   }
 
-  , selectCouple: function(params, callback) {
+  , getCouple: function(params, callback) {
     var queryString = 'SELECT username, hash FROM couples WHERE username = ?;';
     queryDb(queryString, params, callback);
   }
