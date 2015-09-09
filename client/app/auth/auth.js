@@ -42,6 +42,7 @@ angular.module('koupler.auth', [])
 
   $scope.signout = function() {
     AuthTokenFactory.setToken();
+    $location.path('/');
   };
 
 });
