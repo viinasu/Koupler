@@ -84,6 +84,7 @@ html {
   border-style: none none solid none;
   border-color: #96B2D4;
   font-size: 16px;
+  color: white;
 }
 
 .field {
@@ -95,6 +96,7 @@ html {
   border-style: none none solid none;
   border-color: #96B2D4;
   font-size: 16px;
+  color: white;
 }
 
 .field:focus {
@@ -161,6 +163,14 @@ html {
   color: white;
 }
 
+#title {
+  font-weight: 300;
+  text-align: center;
+  font-family: 'Lato', sans-serif;
+  font-size: 42px;
+  color: white;
+}
+
 .activities {
   font-weight: 300;
   width: 500px;
@@ -193,14 +203,15 @@ html {
   font-weight: 400;
   font-family: 'Lato', sans-serif;
   font-size: 42px;
-  margin-left: 35%;
-  margin-top: 30px;
+  text-align: center;
+  margin-bottom: 20px;
   color: white;
 }
 
-#matchedphoto {
-  margin-left: 39%;
-  margin-top: 20px;
+#matchedPhoto {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .coupleDetails {
@@ -208,7 +219,5 @@ html {
   color: white;
   text-align: center;
   margin-top: 20px;
-  margin-left: 50px;
   line-height: 150%;
-  /*margin-left: 20%;*/
 }
