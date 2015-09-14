@@ -1,24 +1,17 @@
-<!--
-THIS PAGE IS THE RESULTS PAGE.
-It will show the photo and profile info of the matching couple.
--->
+<div ng-controller = "AuthCtrl">
+  <button id="signout" ng-click = 'signout()'>Sign Out</button>
+</div>
 
-<div id='matched'>
- <h1>You have been matched with {{ data.person_1_first_name }} & {{ data.person_2_first_name }}!</h1>
-     <div ng-controller = 'AuthCtrl'>
-      <button ng-click = 'signout()'>Sign Out</button>
-    </div>
- <img id='matchedPhoto' ng-src='{{ data.photo_filepath }}' height='350' width='350'></img>
-<!-- TODO: fix Ctrl with right path then modify the ngExpressions -->
- <div>
- <ul class='coupleDetails' style="list-style-type:none">
-   <li>
-     <a id='coupleName'>Couple Name: {{ data.person_1_first_name }} & {{ data.person_2_first_name }}</a>
-     <a>Email: {{ data.email }}</a>
-     <a>Phone: {{ data.phone }}</a>
-   </li>
- </ul>
-<!--FEATURE:
-<h2 ng-href="mailto:{{email.address}}?subject={{email.subject}}&body={{email.body}}">Email this couple!</h2> -->
+<div id="match">
+
+ <h3 id="matched">You have been matched!</h3> 
+
+ <img id="matchedPhoto" ng-src="{{ data.photo_filepath }}" height="350" width="350"></img>
+
+ <div class="coupleDetails">
+  Get in touch with {{ data.person_1_first_name }} &amp; {{ data.person_2_first_name }} <br/> 
+  at {{ data.email }} or {{ data.phone }}. <br/>
+  We hope you have a great time! 
  </div>
+
 </div>

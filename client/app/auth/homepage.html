@@ -1,24 +1,23 @@
 
 <div id = 'signin' >
-  <h3>Login Here</h3>
   <form name = "signinForm" ng-submit = 'signin()'>
-    <input type = 'text' ng-model ='usernameSignin' placeholder = 'username'>
-    <input type = 'password' ng-model = 'passwordSignin' placeholder = 'password'>
-    <button>Sign In</button>
+    <input class="loginfield" type = 'text' ng-model ='usernameSignin' placeholder = 'username'>
+    <input class="loginfield" type = 'password' ng-model = 'passwordSignin' placeholder = 'password'>
+    <button id="signinbutton">Sign In</button>
   </form>
 </div>
 
 <div id = 'signup'> 
-  <h3>Signup Here</h3>
+  <h3 id="koupler">Koupler</h3>
   <form name = 'signupForm' ng-submit = 'signup()'>
-    <input type = 'text' ng-model = 'usernameSignup' placeholder = 'username'>
-    <input type = 'password' ng-model = 'passwordSignup' placeholder = 'password'><br/>
-    <input type = 'text' ng-model = 'firstName1Signup' placeholder = 'Partner 1 First Name'>
-    <input type = 'text' ng-model = 'lastName1Signup' placeholder = 'Partner 1 Last Name'><br/>
-    <input type = 'text' ng-model = 'firstName2Signup' placeholder = 'Partner 2 First Name'>
-    <input type = 'text' ng-model = 'lastName2Signup' placeholder = 'Partner 2 Last Name'><br/>
-    <input type = 'text' ng-model = 'emailSignup' placeholder = 'Email Address'>
-    <input type = 'text' ng-model = 'phoneNumberSignup' placeholder = 'Contact Number'>
-    <button>Sign Up</button>
+    <input class="field" type = 'text' ng-model = 'usernameSignup' placeholder = 'username'>
+    <input class="field" type = 'password' ng-model = 'passwordSignup' placeholder = 'password'><br/>
+    <input class="field" type = 'text' ng-model = 'firstName1Signup' placeholder = 'Partner 1 First Name'>
+    <input class="field" type = 'text' ng-model = 'lastName1Signup' placeholder = 'Partner 1 Last Name'><br/>
+    <input class="field" type = 'text' ng-model = 'firstName2Signup' placeholder = 'Partner 2 First Name'>
+    <input class="field" type = 'text' ng-model = 'lastName2Signup' placeholder = 'Partner 2 Last Name'><br/>
+    <input class="field" type = 'text' ng-model = 'emailSignup' placeholder = 'Email Address'>
+    <input class="field" type = 'text' ng-model = 'phoneNumberSignup' placeholder = 'Contact Number'>
+    <button id="signupbutton">Sign Up</button>
   </form>
 </div>
