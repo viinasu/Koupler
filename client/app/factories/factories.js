@@ -6,7 +6,10 @@ angular.module('koupler.factories', [])
                     {'name': 'Dinner'},
                     {'name': 'Opera'},
                     {'name': 'Dancing'}, 
-                    {'name': 'Music Show'}
+                    {'name': 'Music Show'},
+                    {'name': 'Coffee'},
+                    {'name': 'Swinging'},
+                    {'name': 'Sight-Seeing'}
                   ];
 
   var getActivities = function() {
