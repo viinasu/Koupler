@@ -12,7 +12,7 @@ DROP TABLE IF EXISTS total_messages;
 DROP TABLE IF EXISTS messages;
 
 CREATE TABLE couples (
-  user_id INT NOT NULL AUTO_INCREMENT,
+  id INT NOT NULL AUTO_INCREMENT,
   username VARCHAR(16) NOT NULL,
   hash VARCHAR(256) NOT NULL,
   person_1_last_name VARCHAR(32) NOT NULL,
@@ -20,23 +20,25 @@ CREATE TABLE couples (
   person_2_last_name VARCHAR(32) NOT NULL,
   person_2_first_name VARCHAR(32) NOT NULL,
 
-  email VARCHAR(64),
-  phone INT(10),
-  about_us VARCHAR(4096),
+  email VARCHAR(64) NOT NULL,
+  phone INT(10) NOT NULL,
+  about_us VARCHAR(4096) NOT NULL,
+  likes INT NOT NULL,
 
   PRIMARY KEY(user_id)
 );
 
 CREATE TABLE activities (
-  activity_id INT NOT NULL AUTO_INCREMENT,
+  id INT NOT NULL AUTO_INCREMENT,
   activity_name VARCHAR(32) NOT NULL,
   activity_type VARCHAR(32) NOT NULL,
 
   PRIMARY KEY(activity_id)
 );
 
+CREATE TABLE couples_activities
 CREATE TABLE events (
-  event_id INT NOT NULL AUTO_INCREMENT,
+  id INT NOT NULL AUTO_INCREMENT,
   date DATE NOT NULL,
   actiities_id INT NOT NULL,
   couples_id INT NOT NULL,
@@ -47,7 +49,7 @@ CREATE TABLE events (
 );
 
 CREATE TABLE photos (
-  photos_id INT NOT NULL AUTO_INCREMENT,
+  id INT NOT NULL AUTO_INCREMENT,
   user_id INT NOT NULL,
   user_tags INT NOT NULL,
   photo_path VARCHAR(100) NOT NULL,
