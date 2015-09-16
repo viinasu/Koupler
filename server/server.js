@@ -7,8 +7,8 @@ var server = http.createServer(app);
 
 middleware(app, express);
 
-server.listen(8000, '127.0.0.1', function() {
-  console.log('Listening on 104.236.172.91:' + server.address().port);
+server.listen(3000, function() {
+  console.log('Listening on ' + server.address().port);
 });
 
 module.exports = app;
