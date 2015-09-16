@@ -41,7 +41,7 @@ CREATE TABLE events (
   actiities_id INT NOT NULL,
   couples_id INT NOT NULL,
   photos_id INT NOT NULL,
-  comments TEXT,
+  comments VARCHAR(4096),
 
   PRIMARY KEY(even_id)
 );
