@@ -21,15 +21,15 @@ CREATE TABLE couples (
   id INT NOT NULL AUTO_INCREMENT,
   username VARCHAR(16) NOT NULL,
   hash VARCHAR(256) NOT NULL,
-  person_1_last_name VARCHAR(32) NOT NULL,
-  person_1_first_name VARCHAR(32) NOT NULL,
-  person_2_last_name VARCHAR(32) NOT NULL,
-  person_2_first_name VARCHAR(32) NOT NULL,
+  person1_last_name VARCHAR(32) NOT NULL,
+  person1_first_name VARCHAR(32) NOT NULL,
+  person2_last_name VARCHAR(32) NOT NULL,
+  person2_first_name VARCHAR(32) NOT NULL,
   email VARCHAR(64) NOT NULL,
-  phone INT(10) NOT NULL,
-  about_us VARCHAR(4096) NOT NULL,
+  phone_number INT(10) NOT NULL,
   likes INT(10) NOT NULL,
-  path_profile_pic VARCHAR(64) NOT NULL,
+  about_us VARCHAR(4096) NOT NULL,
+  path_profile_pic VARCHAR(128) NOT NULL,
   PRIMARY KEY(id)
 );
 
@@ -102,17 +102,17 @@ REFERENCES photos(id)
 
 CREATE TABLE photos (
   id INT NOT NULL AUTO_INCREMENT,
-  user_id INT NOT NULL,
-  user_tags INT NOT NULL,
+  couples_id INT NOT NULL,
+  photo_tags varchar(16) NOT NULL,
   photo_path VARCHAR(100) NOT NULL,
-  comments VARCHAR(1280),
+  photo_notes VARCHAR(1024),
   public TINYINT NOT NULL,
   PRIMARY KEY(id)
 )
 
 ALTER TABLE photos
 ADD CONSTRAINT photos_fk0
-FOREIGN KEY (user_id)
+FOREIGN KEY (couples_id)
 REFERENCES couples(id)
 
 
@@ -122,10 +122,9 @@ REFERENCES couples(id)
 
 CREATE TABLE total_messages (
 /*
-  identifier: unique key for conversation between specific users
-              First user_id + second user_id, separated by a colon.
-              Example identifier: user_id3:user_id5
-              Verify at signup that usernames do not have a colon
+  identifier: unique key for conversation between specific couples.
+              First couples_id + second couples_id, separated by a colon.
+              Example identifier: couples_id3:couples_id5
 */
   identifier VARCHAR(256) NOT NULL,
   total_messages INT(10) NOT NULL,
@@ -139,10 +138,10 @@ CREATE TABLE total_messages (
 -- Store each individual messages between users
 
 CREATE TABLE messages (
-  identifier_message_number VARCHAR(128) NOT NULL,
+  identifier_message_number VARCHAR(256) NOT NULL,
   message VARCHAR(4096) NOT NULL,
   created_on TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-  from VARCHAR(16) NOT NULL,
+  from int NOT NULL,
 
   PRIMARY KEY(identifier_message_number)
 );
