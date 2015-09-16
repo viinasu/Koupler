@@ -1,7 +1,8 @@
-<h1>Partial ProfileInfo View</h1>
+<h3>{{ ctrl.testUser.contactInfo.name1 }}</h3>
+<h3>{{ ctrl.testUser.contactInfo.name2 }}</h3>
 
-<img src="http://www.dogster.com/wp-content/uploads/2015/05/Cute%20dog%20listening%20to%20music%201_1.jpg">
+<img src="{{ ctrl.testUser.profilePic }}" height="400px" width="500px">
 
-<span class="activity">Chasing Squirrels</span>
-<span class="activity">Eating Human Food</span>
-<span class="activity">Pooping</span>
+<span class="activity col-md-4" ng-repeat="activity in ctrl.testUser.activities">{{ activity }}</span>
+
+<p class="profileInfo col-md-8"> {{ ctrl.testUser.profileInfo['About Us'] }} </p>

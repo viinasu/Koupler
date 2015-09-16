@@ -3,7 +3,7 @@
    License: none (public domain)
 */
 
-html, body, div, span, applet, object, iframe,
+/*/*/*html, body, div, span, applet, object, iframe,
 h1, h2, h3, h4, h5, h6, p, blockquote, pre,
 a, abbr, acronym, address, big, cite, code,
 del, dfn, em, img, ins, kbd, q, s, samp,
@@ -47,7 +47,7 @@ table {
   border-spacing: 0;
 }
 
-html {
+html, .container-fluid {
   background-color: #172A40;
   font-family: 'Lato', sans-serif;
 }
@@ -97,6 +97,10 @@ html {
   border-color: #96B2D4;
   font-size: 16px;
   color: white;
+}
+
+h3, p {
+  color:white;
 }
 
 .field:focus {
@@ -173,16 +177,6 @@ html {
   color: white;
 }
 
-/*.column {
-  margin: 5px;
-  width: 50%;
-  height: 100%;
-  border-style: none none solid none;
-  border-color: #96B2D4;
-  font-size: 16px;
-  color: black;
-}*/
-
 .activities {
   font-weight: 300;
   width: 500px;
@@ -205,6 +199,12 @@ html {
   margin: 10px;
   color: white;
   background-color: #58d68d;
+}
+
+#half-column {
+  -webkit-column-count: 2; /* Chrome, Safari, Opera */
+  -moz-column-count: 2; /* Firefox */
+  column-count: 2;
 }
 
 #match {
@@ -232,4 +232,4 @@ html {
   text-align: center;
   margin-top: 20px;
   line-height: 150%;
-}
+}*/*/*/

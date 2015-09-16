@@ -3,8 +3,10 @@ angular.module('koupler', [
   'koupler.activities',
   'koupler.auth',
   'koupler.couples',
+  'koupler.profile',
   'ngRoute',
-  'ui.router'
+  'ui.router',
+  'ui.bootstrap'
 ])
 .config(function($stateProvider, $routeProvider, $httpProvider) {
   
@@ -42,7 +44,12 @@ angular.module('koupler', [
       url: '/match',
       controller: 'CouplesCtrl',
       authenticate: true,
-    });
+    })
+    .state('publicProfile', {
+      templateUrl: 'app/profile/publicProfile',
+      url: '/profile/public:username',
+      controller: 'PublicProfileCtrl',
+    })
 
   // $routeProvider
   //   .when('/', {
