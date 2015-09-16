@@ -105,7 +105,8 @@ html, .container-fluid {
 }
 
 h3, p {
-  color:white;
+  color: white;
+  margin-left: 20px;
 }
 
 .field:focus {

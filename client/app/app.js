@@ -8,7 +8,9 @@ angular.module('koupler', [
   'ui.router',
   'ui.bootstrap'
 ])
-.config(function($stateProvider, $routeProvider, $httpProvider) {
+.config(function($stateProvider, $urlRouterProvider, $routeProvider, $httpProvider) {
+  
+  $urlRouterProvider.otherwise('/');
   
   $stateProvider
     .state('home', {
@@ -17,7 +19,6 @@ angular.module('koupler', [
       controller: 'AuthCtrl'
     })
     .state('profile', {
-      // templateUrl: 'app/profile/profile.html',
       url:'/profile',
       controller: 'ProfileCtrl',
       views: {
@@ -45,11 +46,12 @@ angular.module('koupler', [
       controller: 'CouplesCtrl',
       authenticate: true,
     })
-    // .state('publicProfile', {
-    //   templateUrl: 'app/profile/publicProfile',
-    //   url: '/profile/public:username',
-    //   controller: 'PublicProfileCtrl',
-    // })
+    .state('publicProfile', {
+      templateUrl: 'app/profile/publicProfile',
+      url: '/profile/public:username',
+      controller: 'PublicProfileCtrl',
+    })
+
 
   // $routeProvider
   //   .when('/', {
