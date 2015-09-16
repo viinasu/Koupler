@@ -3,27 +3,74 @@ angular.module('koupler', [
   'koupler.activities',
   'koupler.auth',
   'koupler.couples',
-  'ngRoute'
+  'koupler.profile',
+  'ngRoute',
+  'ui.router',
+  'ui.bootstrap'
 ])
-.config(function($routeProvider, $httpProvider) {
-  $routeProvider
-    .when('/', {
+.config(function($stateProvider, $urlRouterProvider, $routeProvider, $httpProvider) {
+  
+  $urlRouterProvider.otherwise('/');
+  
+  $stateProvider
+    .state('home', {
       templateUrl: 'app/auth/homepage.html',
+      url:'/',
       controller: 'AuthCtrl'
     })
-    .when('/activities', {
+    .state('profile', {
+      url:'/profile',
+      controller: 'ProfileCtrl',
+      views: {
+        '': {
+          templateUrl:'app/profile/profile.html'
+        },
+        'profileInfo@profile': {
+          templateUrl:'app/profile/partial-profileInfo.html'
+        },
+        'memories@profile': {
+          templateUrl:'app/profile/partial-memories.html'
+        }
+      },
+      authenticate: true,
+    })
+    .state('activities', {
       templateUrl: 'app/activityPickerCtrl/activityPicker.html',
+      url:'/activities',
       controller: 'ActivityPickerCtrl',
       authenticate: true,
     })
-    .when('/match', {
+    .state('match', {
       templateUrl: 'app/activityPickerCtrl/match.html',
+      url: '/match',
       controller: 'CouplesCtrl',
       authenticate: true,
     })
-    .otherwise({
-      redirectTo: '/'
-    });
+    .state('publicProfile', {
+      templateUrl: 'app/profile/publicProfile',
+      url: '/profile/public:username',
+      controller: 'PublicProfileCtrl',
+    })
+
+
+  // $routeProvider
+  //   .when('/', {
+  //     templateUrl: 'app/auth/homepage.html',
+  //     controller: 'AuthCtrl'
+  //   })
+  //   .when('/activities', {
+  //     templateUrl: 'app/activityPickerCtrl/activityPicker.html',
+  //     controller: 'ActivityPickerCtrl',
+  //     authenticate: true,
+  //   })
+  //   .when('/match', {
+  //     templateUrl: 'app/activityPickerCtrl/match.html',
+  //     controller: 'CouplesCtrl',
+  //     authenticate: true,
+  //   })
+  //   .otherwise({
+  //     redirectTo: '/'
+  //   });
 
     // We add our $httpInterceptor into the array
     // of interceptors. Think of it like middleware for your ajax calls
