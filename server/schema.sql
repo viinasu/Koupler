@@ -30,6 +30,7 @@ CREATE TABLE couples (
   likes INT(10) NOT NULL,
   about_us VARCHAR(4096) NOT NULL,
   path_profile_pic VARCHAR(128) NOT NULL,
+
   PRIMARY KEY(id)
 );
 
@@ -42,6 +43,7 @@ CREATE TABLE activities (
   id INT NOT NULL AUTO_INCREMENT,
   activity_name VARCHAR(32) NOT NULL,
   activity_type VARCHAR(32) NOT NULL,
+
   PRIMARY KEY(id)
 );
 
@@ -53,17 +55,13 @@ CREATE TABLE activities (
 CREATE TABLE couples_activities (
   couples_id INT NOT NULL,
   activities_id INT NOT NULL
+
+  FOREIGN KEY (couples_id)
+    REFERENCES couples(id)
+
+  FOREIGN KEY (activities_id)
+    REFERENCES activities(id)
 );
-
-ALTER TABLE couples_activities
-ADD CONSTRAINT couples_activities_fk0
-FOREIGN KEY (couples_id)
-REFERENCES couples(id)
-
-ALTER TABLE couples_activities
-ADD CONSTRAINT couples_activities_fk1
-FOREIGN KEY (activities_id)
-REFERENCES activities(id)
 
 
 /********* TABLE EVENTS *********/
@@ -77,23 +75,18 @@ CREATE TABLE events (
   couples_id INT NOT NULL,
   photos_id INT NOT NULL,
   comments VARCHAR(4096),
+
   PRIMARY KEY(id)
+
+  FOREIGN KEY (activities_id)
+    REFERENCES activities(id)
+
+  FOREIGN KEY (couples_id)
+    REFERENCES couples(id)
+
+  FOREIGN KEY (photos_id)
+    REFERENCES photos(id)
 );
-
-ALTER TABLE events
-ADD CONSTRAINT events_fk0
-FOREIGN KEY (activities_id)
-REFERENCES activities(id)
-
-ALTER TABLE events
-ADD CONSTRAINT events_fk1
-FOREIGN KEY (couples_id)
-REFERENCES couples(id)
-
-ALTER TABLE events
-ADD CONSTRAINT events_fk2
-FOREIGN KEY (photos_id)
-REFERENCES photos(id)
 
 
 /********* TABLE PHOTOS *********/
@@ -107,13 +100,12 @@ CREATE TABLE photos (
   photo_path VARCHAR(100) NOT NULL,
   photo_notes VARCHAR(1024),
   public TINYINT NOT NULL,
-  PRIMARY KEY(id)
-)
 
-ALTER TABLE photos
-ADD CONSTRAINT photos_fk0
-FOREIGN KEY (couples_id)
-REFERENCES couples(id)
+  PRIMARY KEY(id)
+
+  FOREIGN KEY (couples_id)
+    REFERENCES couples(id)
+);
 
 
 /********* TABLE TOTAL_MESSAGES *********/
@@ -144,10 +136,8 @@ CREATE TABLE messages (
   from int NOT NULL,
 
   PRIMARY KEY(identifier_message_number)
-);
 
-ALTER TABLE messages
-ADD CONSTRAINT messages_fk0
-FOREIGN KEY (from)
-REFERENCES couples(id)
+  FOREIGN KEY (from)
+    REFERENCES couples(id)
+);
 
