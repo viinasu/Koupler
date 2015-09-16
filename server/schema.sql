@@ -6,28 +6,32 @@ USE app_db;
 
 DROP TABLE IF EXISTS couples;
 DROP TABLE IF EXISTS activities;
+DROP TABLE IF EXISTS events;
+DROP TABLE IF EXISTS events;
+DROP TABLE IF EXISTS photos;
+DROP TABLE IF EXISTS total_messages;
+DROP TABLE IF EXISTS messages;
 
 CREATE TABLE couples (
-    username VARCHAR(100) NOT NULL
-  , hash VARCHAR(256) NOT NULL
-  , person_1_last_name VARCHAR(256) NOT NULL
-  , person_1_first_name VARCHAR(256) NOT NULL
+  user_id INT NOT NULL AUTO_INCREMENT,
+  username VARCHAR(16) NOT NULL,
+  hash VARCHAR(256) NOT NULL,
+  person_1_last_name VARCHAR(32) NOT NULL,
+  person_1_first_name VARCHAR(32) NOT NULL,
+  person_2_last_name VARCHAR(32) NOT NULL,
+  person_2_first_name VARCHAR(32) NOT NULL,
 
-  , person_2_last_name VARCHAR(256) NOT NULL
-  , person_2_first_name VARCHAR(256) NOT NULL
+  email VARCHAR(64),
+  phone INT(10),
+  about_us VARCHAR(4096),
 
-  , email VARCHAR(256)
-  , phone VARCHAR(256)
-  , photo_filepath VARCHAR(256)
-
-  , PRIMARY KEY(username)
+  PRIMARY KEY(user_id)
 );
 
 CREATE TABLE activities (
-    activity_id INT NOT NULL AUTO_INCREMENT
-  , username VARCHAR(100) NOT NULL
-  , activity VARCHAR(256) NOT NULL
-  , activity_date DATE NOT NULL
+  activity_id INT NOT NULL AUTO_INCREMENT,
+  activity_name VARCHAR(32) NOT NULL,
+  activity_type VARCHAR(32) NOT NULL,
 
-  , PRIMARY KEY(activity_id)
+  PRIMARY KEY(activity_id)
 );
