@@ -23,9 +23,9 @@ CREATE TABLE couples (
   email VARCHAR(64) NOT NULL,
   phone INT(10) NOT NULL,
   about_us VARCHAR(4096) NOT NULL,
-  likes INT NOT NULL,
+  likes INT(10) NOT NULL,
 
-  PRIMARY KEY(user_id)
+  PRIMARY KEY(id)
 );
 
 CREATE TABLE activities (
@@ -33,10 +33,14 @@ CREATE TABLE activities (
   activity_name VARCHAR(32) NOT NULL,
   activity_type VARCHAR(32) NOT NULL,
 
-  PRIMARY KEY(activity_id)
+  PRIMARY KEY(id)
 );
 
-CREATE TABLE couples_activities
+CREATE TABLE couples_activities (
+  couples_id INT NOT NULL,
+  activities_id INT NOT NULL
+);
+
 CREATE TABLE events (
   id INT NOT NULL AUTO_INCREMENT,
   date DATE NOT NULL,
@@ -45,7 +49,7 @@ CREATE TABLE events (
   photos_id INT NOT NULL,
   comments VARCHAR(4096),
 
-  PRIMARY KEY(even_id)
+  PRIMARY KEY(id)
 );
 
 CREATE TABLE photos (
@@ -56,7 +60,7 @@ CREATE TABLE photos (
   comments VARCHAR(1280),
   public TINYINT NOT NULL,
 
-  PRIMARY KEY(photos_id)
+  PRIMARY KEY(id)
 )
 
 -- Store the total number of messages sent between users
@@ -68,7 +72,7 @@ CREATE TABLE total_messages (
               Verify at signup that usernames do not have a colon
 */
   identifier VARCHAR(256) NOT NULL,
-  total_messages INT NOT NULL,
+  total_messages INT(10) NOT NULL,
 
   PRIMARY KEY(identifier)
 );
@@ -76,7 +80,7 @@ CREATE TABLE total_messages (
 -- Store each individual messages between users
 CREATE TABLE messages (
   identifier_message_number VARCHAR(128) NOT NULL,
-  message TEXT NOT NULL,
+  message VARCHAR(4096) NOT NULL,
   created_on TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
   from VARCHAR(16) NOT NULL,
 
