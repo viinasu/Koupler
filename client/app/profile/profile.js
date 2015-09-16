@@ -12,7 +12,7 @@ angular.module('koupler.profile', [])
       email: 'woof@bark.com',
       phone: 7465746374
     },
-    profilePic: 'http://www.dogster.com/wp-content/uploads/2015/05/Cute%20dog%20listening%20to%20music%201_1.jpg',
+    profilePic: 'http://www.qykapp.com/article/content/images/2015/06/dog-1-1.jpg',
     activities: ['eating human food', 'playing catch', 'pooping', 'hunting squirrels'],
     profileInfo: {
       'About Us': "We're a fun-loving couple of scruffy pups looking to go on a dog date."
