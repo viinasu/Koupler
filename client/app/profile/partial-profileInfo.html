@@ -1,4 +1,4 @@
-<h5 id="koupler">{{ ctrl.testUser.contactInfo.name1 }} & {{ ctrl.testUser.contactInfo.name2 }}</h5>
+<h1 class="stroke">{{ ctrl.testUser.contactInfo.name1 }} & {{ ctrl.testUser.contactInfo.name2 }}</h1>
 
 
 <img class="col-md-4" src="{{ ctrl.testUser.profilePic }}">
@@ -6,5 +6,5 @@
 <span class="activity col-md-4" ng-repeat="activity in ctrl.testUser.activities">{{ activity }}</span>
 
 <div class="row">
-  <p class="profileInfo col-md-8"><legend>About Us</legend> {{ ctrl.testUser.profileInfo['About Us'] }} </p>
+  <p class="profileInfo col-md-8"><legend class=".stroke">About Us</legend> {{ ctrl.testUser.profileInfo['About Us'] }} </p>
 </div>

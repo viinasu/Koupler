@@ -19,7 +19,7 @@ angular.module("koupler").directive("navBar", ['$window', '$location', '$routePa
 
       scope.atActivitiesView = function() {
         var path = $location.$$path.slice(1);
-        if (path.match(/^dash/) !== null) {
+        if (path.match(/^activities/) !== null) {
           return true;
         }
         return false;
