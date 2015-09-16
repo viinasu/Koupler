@@ -13,7 +13,7 @@ angular.module('koupler.auth', [])
       })
       .then(function (response) {
         AuthTokenFactory.setToken(response.data.token);
-        $location.path('/activities');
+        $location.path('/profile');
       }, 
       function(err){
         console.log(err);
@@ -33,7 +33,7 @@ angular.module('koupler.auth', [])
       })
       .then(function(response) {
         AuthTokenFactory.setToken(response.data.token);
-        $location.path('/activities');
+        $location.path('/profile');
       }, 
       function(err){
         console.log(err);

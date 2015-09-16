@@ -1,0 +1,14 @@
+<div ng-controller = 'AuthCtrl'>
+  <button id="signout" ng-click = 'signout()'>Sign Out</button>
+  <button id="goToDashboard" ng-click="/activities">Match Up</button>
+</div>
+
+<!-- <div ng-controller="ProfileCtrl as ctrl"> -->
+  <div class="column">
+    <div ui-view="profileInfo"/>
+  </div>
+
+  <div class="column">
+    <div ui-view="memories"/>
+  </div>
+<!-- </div> -->
