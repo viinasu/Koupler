@@ -13,7 +13,7 @@ angular.module('koupler.profile', [])
       phone: 7465746374
     },
     profilePic: 'http://www.qykapp.com/article/content/images/2015/06/dog-1-1.jpg',
-    activities: ['eating human food', 'playing catch', 'pooping', 'hunting squirrels'],
+    activities: ['eating human food', 'playing catch', 'pooping', 'hunting squirrels', 'getting into the trash', 'chasing cats', 'cuddling'],
     profileInfo: {
       'About Us': "We're a fun-loving couple of scruffy pups looking to go on a dog date."
     }

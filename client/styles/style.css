@@ -28,6 +28,11 @@ article, aside, details, figcaption, figure,
 footer, header, hgroup, menu, nav, section {
   display: block;
 }
+
+legend {
+
+}
+
 body {
   line-height: 1;
 }
@@ -66,7 +71,7 @@ html, .container-fluid {
 
 #koupler {
   font-weight: 900;
-  font-size: 72px;
+  /*font-size: 72px;*/
   margin-bottom: 30px;
   margin-left: 100px;
   /*color: #772828;*/

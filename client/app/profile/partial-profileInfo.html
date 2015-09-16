@@ -1,8 +1,10 @@
-<h3>{{ ctrl.testUser.contactInfo.name1 }}</h3>
-<h3>{{ ctrl.testUser.contactInfo.name2 }}</h3>
+<h5 id="koupler">{{ ctrl.testUser.contactInfo.name1 }} & {{ ctrl.testUser.contactInfo.name2 }}</h5>
 
-<img src="{{ ctrl.testUser.profilePic }}" height="400px" width="500px">
+
+<img class="col-md-4" src="{{ ctrl.testUser.profilePic }}">
 
 <span class="activity col-md-4" ng-repeat="activity in ctrl.testUser.activities">{{ activity }}</span>
 
-<p class="profileInfo col-md-8"> {{ ctrl.testUser.profileInfo['About Us'] }} </p>
+<div class="row">
+  <p class="profileInfo col-md-8"><legend>About Us</legend> {{ ctrl.testUser.profileInfo['About Us'] }} </p>
+</div>
