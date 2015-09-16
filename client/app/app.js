@@ -45,11 +45,11 @@ angular.module('koupler', [
       controller: 'CouplesCtrl',
       authenticate: true,
     })
-    .state('publicProfile', {
-      templateUrl: 'app/profile/publicProfile',
-      url: '/profile/public:username',
-      controller: 'PublicProfileCtrl',
-    })
+    // .state('publicProfile', {
+    //   templateUrl: 'app/profile/publicProfile',
+    //   url: '/profile/public:username',
+    //   controller: 'PublicProfileCtrl',
+    // })
 
   // $routeProvider
   //   .when('/', {

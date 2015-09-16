@@ -30,6 +30,9 @@ angular.module('koupler.profile', [])
     //GET request should respond with user's profile picture, interests, about, memories, etc.
     $http.get('/profile', {token: token})
       .then(function(response) {
+        if(response.data.isAuthorized) {
+          vm.isAuthorized = true;
+        }
         vm.profileData = response.data;
       })
       // .then(function() {

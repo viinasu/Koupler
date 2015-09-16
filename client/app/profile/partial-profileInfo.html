@@ -1,10 +1,19 @@
 <h1 class="stroke">{{ ctrl.testUser.contactInfo.name1 }} & {{ ctrl.testUser.contactInfo.name2 }}</h1>
 
+<div class="row">
+  <img class="col-md-4" src="{{ ctrl.testUser.profilePic }}">
 
-<img class="col-md-4" src="{{ ctrl.testUser.profilePic }}">
+  <button ng-show="ctrl.isAuthorized" ng-click="showEditModal">Edit Profile</button>
 
-<span class="activity col-md-4" ng-repeat="activity in ctrl.testUser.activities">{{ activity }}</span>
+  <div class="activity col-md-4" ng-repeat="activity in ctrl.testUser.activities">{{ activity }}</div>
+</div>
 
 <div class="row">
-  <p class="profileInfo col-md-8"><legend class=".stroke">About Us</legend> {{ ctrl.testUser.profileInfo['About Us'] }} </p>
+  <div class="col-lg-8">
+    <p><legend>About Us</legend> {{ ctrl.testUser.profileInfo['About Us'] }} </p>
+  </div>
+
+  <div class="col-md-4">
+    <p><legend>Contact Info</legend></p>
+  </div>
 </div>
