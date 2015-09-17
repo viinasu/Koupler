@@ -155,3 +155,27 @@ CREATE TABLE messages (
     ON DELETE CASCADE
 );
 
+
+
+/***********************************/
+/************ TEST DATA ************/
+/***********************************/
+
+
+
+INSERT INTO couples (username, hash, person1_last_name, person1_first_name, person2_last_name, person2_first_name, email, phone_number, likes, about_us, path_profile_pic)
+VALUES ("pitts", "pitts", "Pitt", "Brad", "Jolie", "Angelina", "brangelina@hollywood.com", 1234567890, 0, "We have six children. Max, Pax, Zahara, Shiloh, Knox, and Vivienne", "add/path/to/pic.jpg"),
+       ("beckhams", "beckhams", "Beckham", "Victoria", "Beckham", "David", "soccer@euroleague.com", 1234567890, 0, "We have four children. Brooklyn, Romeo, Cruz, and Harper", "add/path/to/pic.jpg");
+
+
+INSERT INTO activities (activity_name, activity_type)
+VALUES ("Unicorn Hunting", "Outdoors"),
+       ("Doggie Date", "Pets"),
+       ("Cat Staring", "Pets");
+
+
+INSERT INTO couples_activities (couples_id, activities_id)
+SELECT couples.id, activities.id
+FROM couples, activities
+WHERE couples.username='pitts'
+AND activities.activity_name='Unicorn Hunting';
