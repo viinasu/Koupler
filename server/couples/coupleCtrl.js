@@ -7,6 +7,7 @@ var jwt = require('jsonwebtoken');
 module.exports = {
   signup: function (req, res, next) {
     //generating hash of password
+    console.log("in coupleCtrl!");
     bcrypt.genSalt(10, function(err, salt){
       if(err){
         console.error(err);
