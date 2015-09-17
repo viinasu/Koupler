@@ -36,22 +36,32 @@ angular.module('koupler', [
       authenticate: true,
     })
     .state('activities', {
-      templateUrl: 'app/activityPickerCtrl/activityPicker.html',
       url:'/activities',
+      views: {
+        '': {
+          templateUrl: 'app/activityPickerCtrl/activityPicker.html',
+        },
+        'activities@activities': {
+          templateUrl: 'app/activityPickerCtrl/partial-activities.html'
+        },
+        'match@activities': {
+          templateUrl: 'app/match/match.html'
+        }
+      },
       controller: 'ActivityPickerCtrl',
       authenticate: true,
     })
-    .state('match', {
-      templateUrl: 'app/match/match.html',
-      url: '/match',
-      controller: 'MatchCtrl',
-      authenticate: true,
-    })
-    .state('publicProfile', {
-      templateUrl: 'app/profile/publicProfile',
-      url: '/profile/public:username',
-      controller: 'PublicProfileCtrl',
-    })
+    // .state('match', {
+    //   templateUrl: 'app/match/match.html',
+    //   // url: '/match',
+    //   controller: 'MatchCtrl',
+    //   authenticate: true,
+    // })
+    // .state('publicProfile', {
+    //   templateUrl: 'app/profile/publicProfile',
+    //   url: '/profile/public:username',
+    //   controller: 'PublicProfileCtrl',
+    // })
 
 
   // $routeProvider

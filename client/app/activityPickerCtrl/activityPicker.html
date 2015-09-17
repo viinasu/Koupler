@@ -1,13 +1,9 @@
 <nav-bar></nav-bar>
 
-  <h1 id="title"> What Do You Want To Do Today? </h1>
-
-  <div class="activities">
-    <div class="activity" 
-        ng-repeat="activity in activities" 
-        ng-click="postActivity(activity)">
-        {{ activity.name }}
-    </div>
-  </div>
-
+<div ng-controller="ActivityPickerCtrl as ctrl">
+  <div ui-view="activities"/>
 </div>
+
+<div ng-show="ctrl.matched" ui-view="match"/>
+
+

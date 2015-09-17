@@ -76,8 +76,23 @@ html, .container-fluid {
   -webkit-text-stroke-color: white;
 }
 
-#koupler {
+.strokeSmall {
+  font-weight: 900;
+  margin-bottom: 30px;
+  font-size: 30px;
+  margin-left: 100px;
+  /*color: #772828;*/
+  -webkit-text-fill-color: transparent;
+  -webkit-text-stroke-width: 1px;
+  -webkit-text-stroke-color: white;
+}
 
+.match-container {
+  background-color: #888888;
+  margin-bottom: 15px;
+  padding: 10px 10px 15px 10px;
+  border: 1px solid #BBBBBB;
+  border-radius: 5px;
 }
 
 .loginfield {
@@ -208,6 +223,7 @@ h3, p {
 
 .activity {
   font-weight: 300;
+  display: inline-block;
   width: 100px;
   height: 3em;
   border-width: 1px;
