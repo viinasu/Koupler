@@ -17,7 +17,7 @@ module.exports = {
       
       if(data) {
         console.log("profile data received!", data);
-        res.send({ data: data });
+        res.send(data);
         res.end();
       }
     });
