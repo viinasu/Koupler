@@ -21,4 +21,14 @@ module.exports = {
     var queryString = 'SELECT c.username, c.person_1_first_name, c.person_2_first_name, c.email, c.phone, c.photo_filepath, a.activity FROM couples c JOIN activities a ON c.username = a.username WHERE c.username <> ? AND a.activity IN (SELECT activity FROM activities WHERE username = ?);';
     queryDb(queryString, params, callback);
   }
+
+  , getMatches: function(params, callback) {
+    var activityId;
+    var activityQueryString = 'SELECT id FROM activities WHERE activity_name = (?)';
+    queryDb(activityQueryString, params, function(err, data) {
+      activityId = data[0].id;
+      console.log(activityId);
+    });
+    // queryDb(queryString, params, callback);
+  }
 };

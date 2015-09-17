@@ -38,6 +38,7 @@ module.exports = {
           res.send({
             //sending back token for client processing
             token: token,
+            username: req.body.username,
             decoded: jwt.decode(token)
           });
         });
@@ -67,7 +68,8 @@ module.exports = {
             }, jwtSecret);
             res.send({
               //sending back token for client processing
-              token: token
+              token: token,
+              username: req.body.username
             });
           }
         });

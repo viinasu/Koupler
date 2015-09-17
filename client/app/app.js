@@ -20,7 +20,7 @@ angular.module('koupler', [
       controller: 'AuthCtrl'
     })
     .state('profile', {
-      url:'/profile',
+      url:'/profile/:username',
       controller: 'ProfileCtrl',
       views: {
         '': {
@@ -51,17 +51,6 @@ angular.module('koupler', [
       controller: 'ActivityPickerCtrl',
       authenticate: true,
     })
-    // .state('match', {
-    //   templateUrl: 'app/match/match.html',
-    //   // url: '/match',
-    //   controller: 'MatchCtrl',
-    //   authenticate: true,
-    // })
-    // .state('publicProfile', {
-    //   templateUrl: 'app/profile/publicProfile',
-    //   url: '/profile/public:username',
-    //   controller: 'PublicProfileCtrl',
-    // })
 
 
   // $routeProvider
@@ -109,9 +98,9 @@ angular.module('koupler', [
   //a state change rather than a route change in order to check authentication
   $rootScope.$on('$stateChangeStart', function(evt, next, current) {
 
-    if (!AuthTokenFactory.isAuth()) {
-      $location.path('/');
-    }
+    // if (!AuthTokenFactory.isAuth()) {
+    //   $location.path('/');
+    // }
   });
 });
 

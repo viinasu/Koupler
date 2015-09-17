@@ -4,6 +4,9 @@ angular.module('koupler.profile', [])
 
   var vm = this;
 
+  
+  vm.isAuthorized = true;
+
   vm.testUser = {
     username: 'testUser',
     contactInfo: {

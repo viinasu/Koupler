@@ -169,9 +169,15 @@ VALUES ("pitts", "pitts", "Pitt", "Brad", "Jolie", "Angelina", "brangelina@holly
 
 
 INSERT INTO activities (activity_name, activity_type)
-VALUES ("Unicorn Hunting", "Outdoors"),
-       ("Doggie Date", "Pets"),
-       ("Cat Staring", "Pets");
+VALUES  ("Hiking", "Outdoors"),
+        ("Unicorn Hunting", "Outdoors"),
+        ("Cat Staring", "Pets"),
+        ("Dinner", "Food & Entertainment"),
+        ("Opera", "Food & Entertainment"),
+        ("Live Music", "Food & Entertainment"),
+        ("Dancing", "Food & Entertainment"),
+        ("Sight-Seeing", "Culture"),
+        ("Doggy Date", "Pets");
 
 
 INSERT INTO couples_activities (couples_id, activities_id)
