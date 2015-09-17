@@ -14,10 +14,13 @@
     "gulp-shell": "^0.2.7",
     "jasmine-core": "^2.3.4",
     "karma": "^0.13.9",
-    "karma-chrome-launcher": "^0.2.0",
+    "karma-cli": "0.0.4",
     "karma-coverage": "^0.5.2",
     "karma-jasmine": "^0.3.6",
-    "karma-ng-html2js-preprocessor": "^0.1.2"
+    "karma-ng-html2js-preprocessor": "^0.1.2",
+    "karma-nyan-reporter": "0.0.43",
+    "karma-phantomjs-launcher": "^0.1.4",
+    "karma-unicorn-reporter": "^0.1.4"
   },
   "dependencies": {
     "angular": "^1.4.5",
@@ -36,6 +39,6 @@
     "request": "^2.34.0"
   },
   "scripts": {
-    "test": "karma start"
+    "test": "karma start --browsers PhantomJS"
   }
 }

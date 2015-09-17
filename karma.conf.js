@@ -25,14 +25,14 @@ module.exports = function(config){
     ],
 
     preprocessors: {
-      'client/app/**/*.html': ['ng-html12js'],
+      // 'client/app/**/*.html': ['ng-html12js'],
       'client/app/**/*.js': ['coverage']
     },
 
-    ngHtml2JsPreprocessor: {
-      stripPrefix: 'client/app/',
-      moduleName: 'templates'
-    },
+    // ngHtml2JsPreprocessor: {
+    //   stripPrefix: 'client/app/',
+    //   moduleName: 'templates'
+    // },
 
     reporters: ['progress', 'coverage', 'nyan', 'unicorn'],
 
@@ -49,7 +49,7 @@ module.exports = function(config){
 
     autoWatch: true,
 
-    browsers: ['Chrome'],
+    browsers: ['PhantomJS'],
 
     singleRun: false
 
