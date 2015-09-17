@@ -2,10 +2,12 @@ var morgan = require('morgan');
 var bodyParser = require('body-parser');
 var helpers = require('./helpers.js');
 
-module.exports = function (app, express) {
 
+module.exports = function (app, express) {
+  console.log("in Middleware!");
   var coupleRouter = express.Router();
   var activityRouter = express.Router();
+  var profileRouter = express.Router();
 
   // Middleware to parse request body
   app.use(morgan('dev'));
@@ -18,8 +20,10 @@ module.exports = function (app, express) {
 
   app.use('/couples', coupleRouter);
   app.use('/activities', activityRouter);
+  app.use('/profile', profileRouter); //CHANGE TO PROFILE
 
   require('../couples/coupleRoute.js')(coupleRouter);
   require('../activities/activityRoutes.js')(activityRouter);
+  require('../profiles/profileRoute.js')(profileRouter);
 
 };

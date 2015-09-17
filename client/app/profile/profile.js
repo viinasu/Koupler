@@ -41,4 +41,6 @@ angular.module('koupler.profile', [])
       //   })
       // })
   };
+
+  vm.getProfileInfo();
 });
