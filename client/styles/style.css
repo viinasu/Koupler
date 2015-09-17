@@ -104,6 +104,21 @@ html, .container-fluid {
   color: white;
 }
 
+.tabContainer {
+  background-image: url("http://previews.123rf.com/images/inxti/inxti1202/inxti120200037/12232435-two-heart-on-wood-background-with-copy-space--Stock-Photo-day-mothers-wood.jpg");
+}
+
+.tabs {
+  font-weight: 800;
+  margin-bottom: -1px;
+  font-size: 20px;
+  margin-left: 30px;
+  /*color: #772828;*/
+  -webkit-text-fill-color: transparent;
+  -webkit-text-stroke-width: 0.5px;
+  -webkit-text-stroke-color: white;
+}
+
 h3, p {
   color: white;
   margin-left: 20px;
