@@ -58,9 +58,13 @@ CREATE TABLE couples_activities (
 
   FOREIGN KEY (couples_id)
     REFERENCES couples(id)
+    ON UPDATE CASCADE
+    ON DELETE SET NULL
 
   FOREIGN KEY (activities_id)
     REFERENCES activities(id)
+    ON UPDATE CASCADE
+    ON DELETE SET NULL
 );
 
 
@@ -80,12 +84,18 @@ CREATE TABLE events (
 
   FOREIGN KEY (activities_id)
     REFERENCES activities(id)
+    ON UPDATE CASCADE
+    ON DELETE SET NULL
 
   FOREIGN KEY (couples_id)
     REFERENCES couples(id)
+    ON UPDATE CASCADE
+    ON DELETE SET NULL
 
   FOREIGN KEY (photos_id)
     REFERENCES photos(id)
+    ON UPDATE CASCADE
+    ON DELETE SET NULL
 );
 
 
@@ -105,6 +115,8 @@ CREATE TABLE photos (
 
   FOREIGN KEY (couples_id)
     REFERENCES couples(id)
+    ON UPDATE CASCADE
+    ON DELETE SET NULL
 );
 
 
@@ -139,5 +151,7 @@ CREATE TABLE messages (
 
   FOREIGN KEY (from)
     REFERENCES couples(id)
+    ON UPDATE CASCADE
+    ON DELETE SET NULL
 );
 
