@@ -25,11 +25,11 @@ CREATE TABLE couples (
   person_1_first_name VARCHAR(32) NOT NULL,
   person_2_last_name VARCHAR(32) NOT NULL,
   person_2_first_name VARCHAR(32) NOT NULL,
-  email VARCHAR(64) NOT NULL,
-  phone_number INT(10) NOT NULL,
-  likes INT(10) NOT NULL,
-  about_us VARCHAR(4096) NOT NULL,
-  photo_filepath VARCHAR(128) NOT NULL,
+  email VARCHAR(64),
+  phone INT(10),
+  likes INT(10),
+  about_us VARCHAR(4096),
+  photo_filepath VARCHAR(128),
 
   PRIMARY KEY(id)
 );
@@ -42,7 +42,7 @@ CREATE TABLE couples (
 CREATE TABLE activities (
   id INT NOT NULL AUTO_INCREMENT,
   activity_name VARCHAR(32) NOT NULL,
-  activity_type VARCHAR(32) NOT NULL,
+  activity_type VARCHAR(32),
 
   PRIMARY KEY(id)
 );
@@ -78,7 +78,7 @@ CREATE TABLE photos (
   photo_tags varchar(16) NOT NULL,
   photo_path VARCHAR(100) NOT NULL,
   photo_notes VARCHAR(1024),
-  public TINYINT NOT NULL,
+  public TINYINT DEFAULT 0,
 
   PRIMARY KEY(id),
 
@@ -163,7 +163,7 @@ CREATE TABLE messages (
 
 
 
-INSERT INTO couples (username, hash, person_1_last_name, person_1_first_name, person_2_last_name, person_2_first_name, email, phone_number, likes, about_us, photo_filepath)
+INSERT INTO couples (username, hash, person_1_last_name, person_1_first_name, person_2_last_name, person_2_first_name, email, phone, likes, about_us, photo_filepath)
 VALUES ("pitts", "pitts", "Pitt", "Brad", "Jolie", "Angelina", "brangelina@hollywood.com", 1234567890, 0, "We have six children. Max, Pax, Zahara, Shiloh, Knox, and Vivienne", "add/path/to/pic.jpg"),
        ("beckhams", "beckhams", "Beckham", "Victoria", "Beckham", "David", "soccer@euroleague.com", 1234567890, 0, "We have four children. Brooklyn, Romeo, Cruz, and Harper", "add/path/to/pic.jpg");
 
