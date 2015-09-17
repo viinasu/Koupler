@@ -54,48 +54,17 @@ CREATE TABLE activities (
 
 CREATE TABLE couples_activities (
   couples_id INT NOT NULL,
-  activities_id INT NOT NULL
-
-  FOREIGN KEY (couples_id)
-    REFERENCES couples(id)
-    ON UPDATE CASCADE
-    ON DELETE SET NULL
-
-  FOREIGN KEY (activities_id)
-    REFERENCES activities(id)
-    ON UPDATE CASCADE
-    ON DELETE SET NULL
-);
-
-
-/********* TABLE EVENTS *********/
-
--- All events the two couples did together
-
-CREATE TABLE events (
-  id INT NOT NULL AUTO_INCREMENT,
-  date DATE NOT NULL,
   activities_id INT NOT NULL,
-  couples_id INT NOT NULL,
-  photos_id INT NOT NULL,
-  comments VARCHAR(4096),
-
-  PRIMARY KEY(id)
-
-  FOREIGN KEY (activities_id)
-    REFERENCES activities(id)
-    ON UPDATE CASCADE
-    ON DELETE SET NULL
 
   FOREIGN KEY (couples_id)
     REFERENCES couples(id)
     ON UPDATE CASCADE
-    ON DELETE SET NULL
+    ON DELETE CASCADE,
 
-  FOREIGN KEY (photos_id)
-    REFERENCES photos(id)
+  FOREIGN KEY (activities_id)
+    REFERENCES activities(id)
     ON UPDATE CASCADE
-    ON DELETE SET NULL
+    ON DELETE CASCADE
 );
 
 
@@ -111,12 +80,43 @@ CREATE TABLE photos (
   photo_notes VARCHAR(1024),
   public TINYINT NOT NULL,
 
-  PRIMARY KEY(id)
+  PRIMARY KEY(id),
 
   FOREIGN KEY (couples_id)
     REFERENCES couples(id)
     ON UPDATE CASCADE
-    ON DELETE SET NULL
+    ON DELETE CASCADE
+);
+
+
+/********* TABLE EVENTS *********/
+
+-- All events the two couples did together
+
+CREATE TABLE events (
+  id INT NOT NULL AUTO_INCREMENT,
+  date DATE NOT NULL,
+  activities_id INT NOT NULL,
+  couples_id INT NOT NULL,
+  photos_id INT NOT NULL,
+  comments VARCHAR(4096),
+
+  PRIMARY KEY(id),
+
+  FOREIGN KEY (activities_id)
+    REFERENCES activities(id)
+    ON UPDATE CASCADE
+    ON DELETE CASCADE,
+
+  FOREIGN KEY (couples_id)
+    REFERENCES couples(id)
+    ON UPDATE CASCADE
+    ON DELETE CASCADE,
+
+  FOREIGN KEY (photos_id)
+    REFERENCES photos(id)
+    ON UPDATE CASCADE
+    ON DELETE CASCADE
 );
 
 
@@ -130,7 +130,7 @@ CREATE TABLE total_messages (
               First couples_id + second couples_id, separated by a colon.
               Example identifier: couples_id3:couples_id5
 */
-  identifier VARCHAR(256) NOT NULL,
+  identifier VARCHAR(255) NOT NULL,
   total_messages INT(10) NOT NULL,
 
   PRIMARY KEY(identifier)
@@ -142,16 +142,16 @@ CREATE TABLE total_messages (
 -- Store each individual messages between users
 
 CREATE TABLE messages (
-  identifier_message_number VARCHAR(256) NOT NULL,
+  identifier_message_number VARCHAR(255) NOT NULL,
   message VARCHAR(4096) NOT NULL,
   created_on TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-  from int NOT NULL,
+  sender int NOT NULL,
 
-  PRIMARY KEY(identifier_message_number)
+  PRIMARY KEY(identifier_message_number),
 
-  FOREIGN KEY (from)
+  FOREIGN KEY (sender)
     REFERENCES couples(id)
     ON UPDATE CASCADE
-    ON DELETE SET NULL
+    ON DELETE CASCADE
 );
 
