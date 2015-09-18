@@ -35,7 +35,7 @@ angular.module('koupler.profile', [])
         if(response.data.isAuthorized) {
           vm.isAuthorized = true;
         }
-        vm.profileData = response.data.data; //looks like [{about us: "", username: ""}] 
+        vm.profileData = response.data; //looks like [{about us: "", username: ""}] 
         console.log(vm.profileData);
       })
   };
