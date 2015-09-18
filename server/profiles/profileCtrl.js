@@ -26,6 +26,9 @@ module.exports = {
 
   storeProfilePic: function(req, res, next) {
     console.log("attempting to save profile pic to server...")
+
+    // formidable parses data from image upload form front client.
+    // files can be accessed using the files variable
     var form = new formidable.IncomingForm();
     form.parse(req, function(err, fields, files) {
       var file = files.file;
