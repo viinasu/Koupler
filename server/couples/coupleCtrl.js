@@ -7,6 +7,7 @@ var jwt = require('jsonwebtoken');
 module.exports = {
   signup: function (req, res, next) {
     //generating hash of password
+    console.log("in coupleCtrl!");
     bcrypt.genSalt(10, function(err, salt){
       if(err){
         console.error(err);
@@ -37,6 +38,7 @@ module.exports = {
           res.send({
             //sending back token for client processing
             token: token,
+            username: req.body.username,
             decoded: jwt.decode(token)
           });
         });
@@ -66,7 +68,8 @@ module.exports = {
             }, jwtSecret);
             res.send({
               //sending back token for client processing
-              token: token
+              token: token,
+              username: req.body.username
             });
           }
         });

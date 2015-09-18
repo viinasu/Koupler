@@ -13,7 +13,8 @@ angular.module('koupler.auth', [])
       })
       .then(function (response) {
         AuthTokenFactory.setToken(response.data.token);
-        $location.path('/profile');
+        var username = response.data.username;
+        $location.path('/profile/' + username);
       }, 
       function(err){
         console.log(err);
@@ -32,8 +33,10 @@ angular.module('koupler.auth', [])
         phoneNumber: $scope.phoneNumberSignup
       })
       .then(function(response) {
+        console.log('signup request')
         AuthTokenFactory.setToken(response.data.token);
-        $location.path('/profile');
+        var username = response.data.username;
+        $location.path('/profile/' + username);
       }, 
       function(err){
         console.log(err);
