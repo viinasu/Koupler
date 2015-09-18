@@ -29,7 +29,7 @@ CREATE TABLE couples (
   phone INT(10),
   likes INT(10),
   about_us VARCHAR(4096),
-  photo_filepath VARCHAR(128),
+  photo_filepath VARCHAR(256),
 
   PRIMARY KEY(id)
 );

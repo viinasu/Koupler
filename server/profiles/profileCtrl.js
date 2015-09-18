@@ -2,8 +2,6 @@ var profile = require('./profileModel.js');
 var bcrypt = require('bcryptjs');
 var jwt = require('jsonwebtoken');
 var formidable = require('formidable');
-var fs = require('fs');
-var mkdirp = require('mkdirp');
 
 var getUsername = function(token) {
   var decodedToken = jwt.decode(token);
@@ -27,17 +25,20 @@ module.exports = {
   },
 
   storeProfilePic: function(req, res, next) {
+    console.log("attempting to save profile pic to server...")
     var form = new formidable.IncomingForm();
-    var targetPath = __dirname + "/../assets/profile-pic/" + req.params.username + "/";
-    mkdirp(targetPath, function(err) {
-      if (err) {throw err;}
-    });
-
     form.parse(req, function(err, fields, files) {
-      fs.rename(files.file.path, targetPath + files.file.name);
+      var file = files.file;
+      profile.setProfilePic([req.params.username, file], function(err) {
+        if (err) {
+          console.log("Could not save to server");
+        }
+        else {
+          console.log("Saved profile pic to server");
+        }
+      });
     });
-
-    res.send("thank you");
+    res.send("Saved");
     res.end();
   }
 };
