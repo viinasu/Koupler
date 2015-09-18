@@ -1,4 +1,4 @@
-angular.module("koupler").directive("navBar", ['$window', '$location', '$routeParams', function($window, $location, $routeParams) {
+angular.module("koupler").directive("navBar", ['$window', '$state', function($window, $state) {
   return {
     restrict: 'E',
     templateUrl: 'app/navbar/navbar.html',
@@ -10,7 +10,7 @@ angular.module("koupler").directive("navBar", ['$window', '$location', '$routePa
 
       //**"at" methods return true if the user is currently at that view
       scope.atProfileView = function() {
-        var path = $location.$$path.slice(1);
+        var path = $state.current.name;
         if (path.match(/^profile/) !== null) {
           return true;
         }
@@ -18,7 +18,7 @@ angular.module("koupler").directive("navBar", ['$window', '$location', '$routePa
       };
 
       scope.atActivitiesView = function() {
-        var path = $location.$$path.slice(1);
+        var path = $state.current.name;
         if (path.match(/^activities/) !== null) {
           return true;
         }
@@ -26,22 +26,22 @@ angular.module("koupler").directive("navBar", ['$window', '$location', '$routePa
       };
 
       scope.atHomeView = function() {
-        if ($location.$$path === '/') {
+        if ($state.current.name === '') {
           return true;
         }
         return false;
       };
 
       scope.goToActivities = function() {
-        $location.path('/activities');
+        $state.go('activities');
       };
 
       scope.goToProfile = function() {
-        $location.path('/profile');
+        $state.go('profile');
       };
 
       scope.goToHome = function() {
-        $location.path('/');
+        $state.go('');
       };
 
       //returns true if user is logged in to either profile or dash view
@@ -53,11 +53,4 @@ angular.module("koupler").directive("navBar", ['$window', '$location', '$routePa
   };
 }]);
 
-//attempt at tabs
 
-// angular.module('koupler.tabbar').controller('TabBarCtrl', function ($scope, $window) {
-//   $scope.tabs = [
-//     { title:'Profile Home', content:'Dynamic content 1' },
-//     { title:'Activities', content:'Dynamic content 2' },
-//     { title:'Matches', content:'Dynamic content 1', disabled: true },
-//   ];

@@ -1,10 +1,9 @@
 angular.module('koupler.profile', [])
 
-.controller('ProfileCtrl', function($scope, $location, $http, Activities, AuthTokenFactory, Upload, $routeParams) {
-
+.controller('ProfileCtrl', function($scope, $state, $http, Activities, AuthTokenFactory, Upload) {
   var vm = this;
   //placeholder for POST request until routeParam is set up
-  vm.username = $routeParams.username || 'darrin';
+  vm.username = $state.params.username;
 
 
   vm.isAuthorized = true;
@@ -25,7 +24,7 @@ angular.module('koupler.profile', [])
   };
 
   vm.goToActivities = function() {
-    $location.path('/activities');
+    $state.go('activities');
   };
 
   vm.profileData = {};
@@ -41,7 +40,6 @@ angular.module('koupler.profile', [])
           vm.isAuthorized = true;
         }
         vm.profileData = response.data; //looks like [{about us: "", username: ""}]
-        console.log(vm.profileData);
       });
   };
 
