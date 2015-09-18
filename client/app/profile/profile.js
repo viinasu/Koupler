@@ -1,8 +1,8 @@
 angular.module('koupler.profile', [])
 
 .controller('ProfileCtrl', function($scope, $location, $http, Activities, AuthTokenFactory) {
-
   var vm = this;
+
 
   vm.testUser = {
     username: 'testUser',
@@ -28,7 +28,7 @@ angular.module('koupler.profile', [])
   vm.getProfileInfo = function () {
     var token = AuthTokenFactory.getToken();
     //GET request should respond with user's profile picture, interests, about, memories, etc.
-    $http.get('/profile', {params: 
+    $http.get('/profile/:username', {params: 
       {token: token}
     })
       .then(function(response) {
@@ -37,7 +37,15 @@ angular.module('koupler.profile', [])
         }
         vm.profileData = response.data; //looks like [{about us: "", username: ""}] 
         console.log(vm.profileData);
+
+        //Get Memory Board Photos after getting the Profile Info
+        // $http.get('/profile/:username/memboard')
+        //   .then(function(response){
+        //     console.log("picture should be loaded!");
+        //   })
       })
+
+
   };
 
   vm.getProfileInfo();

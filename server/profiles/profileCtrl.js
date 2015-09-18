@@ -21,5 +21,18 @@ module.exports = {
         res.end();
       }
     });
+  },
+
+  loadMemBoard: function (req, res, next) {
+    profile.getMemBoard([username], function(err, data) {
+      if(err) console.log(err);
+
+      if(data) {
+        res.writeHead(201, {'Content-Type':'text/html'});
+        console.log("memboard data received!", data);
+        res.send(data);
+        res.end();
+      }
+    })
   }
 };
