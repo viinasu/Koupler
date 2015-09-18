@@ -6,11 +6,10 @@ angular.module('koupler', [
   'koupler.match',
   'koupler.profile',
   'ui.router',
-  'ngRoute',
   'ui.bootstrap',
   'ngFileUpload'
 ])
-.config(function($stateProvider, $urlRouterProvider, $routeProvider, $httpProvider) {
+.config(function($stateProvider, $urlRouterProvider, $httpProvider) {
 
   $urlRouterProvider.otherwise('/');
 
@@ -53,25 +52,6 @@ angular.module('koupler', [
       authenticate: true,
     });
 
-
-  // $routeProvider
-  //   .when('/', {
-  //     templateUrl: 'app/auth/homepage.html',
-  //     controller: 'AuthCtrl'
-  //   })
-  //   .when('/activities/:username', {
-  //     templateUrl: 'app/activityPickerCtrl/activityPicker.html',
-  //     controller: 'ActivityPickerCtrl',
-  //     authenticate: true,
-  //   })
-  //   .when('/match', {
-  //     templateUrl: 'app/activityPickerCtrl/match.html',
-  //     controller: 'CouplesCtrl',
-  //     authenticate: true,
-  //   })
-  //   .otherwise({
-  //     redirectTo: '/'
-  //   });
 
     // We add our $httpInterceptor into the array
     // of interceptors. Think of it like middleware for your ajax calls
