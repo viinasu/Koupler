@@ -1,21 +1,22 @@
-// This controller is responsible for client side authentication in the 
-//signup/signin form using the injected AuthTokenFactory service. 
+// This controller is responsible for client side authentication in the
+//signup/signin form using the injected AuthTokenFactory service.
 angular.module('koupler.auth', [])
 
-.controller('AuthCtrl', function ($scope, $http, $window, $location, AuthTokenFactory){
-      
+.controller('AuthCtrl', function ($scope, $http, $window, $state, AuthTokenFactory){
+
   var user = {};
-  //To Do add post request handlers to factories.js 
+  //To Do add post request handlers to factories.js
   $scope.signin = function() {
     $http.post('/couples/signin', {
-        username: $scope.usernameSignin, 
+        username: $scope.usernameSignin,
         password: $scope.passwordSignin
       })
       .then(function (response) {
         AuthTokenFactory.setToken(response.data.token);
         var username = response.data.username;
-        $location.path('/profile/' + username);
-      }, 
+        $state.go('profile', {username: username});
+        // $location.path('/profile/' + username);
+      },
       function(err){
         console.log(err);
       });
@@ -23,7 +24,7 @@ angular.module('koupler.auth', [])
 
   $scope.signup = function() {
     $http.post('/couples/signup', {
-        username: $scope.usernameSignup, 
+        username: $scope.usernameSignup,
         password: $scope.passwordSignup,
         firstName1: $scope.firstName1Signup,
         lastName1: $scope.lastName1Signup,
@@ -33,11 +34,11 @@ angular.module('koupler.auth', [])
         phoneNumber: $scope.phoneNumberSignup
       })
       .then(function(response) {
-        console.log('signup request')
+        console.log('signup request');
         AuthTokenFactory.setToken(response.data.token);
         var username = response.data.username;
-        $location.path('/profile/' + username);
-      }, 
+        $state.go('profile', {username: username});
+      },
       function(err){
         console.log(err);
       });
@@ -45,7 +46,7 @@ angular.module('koupler.auth', [])
 
   $scope.signout = function() {
     AuthTokenFactory.setToken();
-    $location.path('/');
+    $state.go('home');
   };
 
 });

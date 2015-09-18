@@ -1,7 +1,7 @@
 angular.module('koupler.activities', [])
 
-.controller('ActivityPickerCtrl', function($scope, $location, $http, Activities, AuthTokenFactory) {
-  
+.controller('ActivityPickerCtrl', function($scope, $http, Activities, AuthTokenFactory) {
+
   vm = this;
 
   vm.activities = Activities.getActivities();
