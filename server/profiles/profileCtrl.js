@@ -41,7 +41,7 @@ module.exports = {
         }
       });
     });
-    res.send("Saved");
+    res.status(201).send("Profile pic saved");
     res.end();
   }
 };
