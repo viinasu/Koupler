@@ -23,12 +23,15 @@ module.exports = {
   }
 
   , getMatches: function(params, callback) {
-    var activityId;
-    var activityQueryString = 'SELECT id FROM activities WHERE activity_name = (?)';
-    queryDb(activityQueryString, params, function(err, data) {
+    var activityId = 0;
+    var matchesId;
+    var activityIdQueryString = 'SELECT id FROM activities WHERE activity_name = (?)';
+    //define activity Id to simplify query process and make queries more readable
+    queryDb(activityIdQueryString, params, function(err, data) {
       activityId = data[0].id;
-      console.log(activityId);
+      
+      var queryString = 'SELECT * FROM couples c, couples_activities j WHERE j.couples_id = c.id AND j.activities_id = (?)';
+      queryDb(queryString, [ activityId ], callback);
     });
-    // queryDb(queryString, params, callback);
   }
 };

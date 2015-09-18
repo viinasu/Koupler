@@ -184,4 +184,10 @@ INSERT INTO couples_activities (couples_id, activities_id)
 SELECT couples.id, activities.id
 FROM couples, activities
 WHERE couples.username='pitts'
-AND activities.activity_name='Unicorn Hunting';
+AND activities.activity_name='Dinner';
+
+INSERT INTO couples_activities (couples_id, activities_id)
+SELECT couples.id, activities.id
+FROM couples, activities
+WHERE couples.username='beckhams'
+AND activities.activity_name='Dinner';

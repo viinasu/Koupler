@@ -40,8 +40,7 @@ module.exports = {
     var activityChosen = req.body.activity.name;
 
     return activity.getMatches([ activityChosen ], function(err, data) {
-      console.log(data);
-      // res.send();
+      res.send(data);
     })
   }
 };
