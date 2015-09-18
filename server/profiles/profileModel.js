@@ -4,22 +4,32 @@ var fs = require('fs');
 var mkdirp = require('mkdirp');
 var moment = require('moment');
 
-var queryDb = function(queryString, params, callback) {
-  dbConnection.query(queryString, params, function(err, data) {
-    if(err) {
-      console.error('Database ' + err);
-    }
+//var queryDb = function(queryString, params, callback) {
+  //dbConnection.query(queryString, params, function(err, data) {
+    //if (err) {
+      //console.error('Database ' + err);
+    //}
 
-    callback(err, data);
-  });
-};
+    //callback(err, data);
+  //});
+//};
 
 module.exports = {
 
   getProfileInfo: function(params, callback) {
     console.log("inget getProfileInfo!");
-    var queryString = 'SELECT * FROM couples WHERE couples.username = ?'
-    queryDb(queryString, params, callback);
+    var queryString = 'SELECT * FROM couples WHERE couples.username = ?;';
+    //queryDb(queryString, params, callback);
+    dbConnection.query(queryString, params, callback);
+  },
+
+  // params: [username]
+  getProfilePic: function(params, callback) {
+    var queryString = 'SELECT photo_filepath FROM couples WHERE username = ?;';
+
+    dbConnection.query(queryString, params, function(err, results) {
+      console.log(results[0].photo_filepath);
+    })
   },
 
   // input: params expects an array [username, file]
@@ -51,6 +61,14 @@ module.exports = {
     });
 
     var queryString = 'UPDATE couples SET photo_filepath = ? WHERE username = ?;';
-    queryDb(queryString, [filePathServer, username], callback);
+    dbConnection.query(queryString, [filePathServer, username], callback);
+  },
+
+  getMemories: function(callback) {
+
+  },
+
+  addToMemories: function(callback) {
+
   }
 };

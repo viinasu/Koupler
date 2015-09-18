@@ -24,6 +24,18 @@ module.exports = {
     });
   },
 
+  loadProfilePic: function(req, res, next) {
+    console.log("requesting profile pic from database...");
+
+    // node-mysql expects parameter to be an array
+    profile.getProfilePic([req.params.username], function(data) {
+      if (data) {
+        console.log("profile pic retrieved!");
+
+      }
+    })
+  },
+
   storeProfilePic: function(req, res, next) {
     console.log("attempting to save profile pic to server...")
 
@@ -43,5 +55,13 @@ module.exports = {
     });
     res.status(201).send("Profile pic saved");
     res.end();
-  }
+  },
+
+  loadMemories: function(req, res, next) {
+
+  },
+
+  storeToMemories: function(req, res, next) {
+
+  },
 };
