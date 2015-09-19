@@ -6,7 +6,7 @@ var formidable = require('formidable');
 var getUsername = function(token) {
   var decodedToken = jwt.decode(token);
   return decodedToken.username;
-}
+};
 
 module.exports = {
 
@@ -46,7 +46,7 @@ module.exports = {
   },
 
   storeProfilePic: function(req, res, next) {
-    console.log("attempting to save profile pic to server...")
+    console.log("attempting to save profile pic to server...");
 
     // formidable parses data from image upload form front client.
     // files can be accessed using the files variable
