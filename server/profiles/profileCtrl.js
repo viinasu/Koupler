@@ -24,6 +24,27 @@ module.exports = {
     });
   },
 
+  loadProfilePic: function(req, res, next) {
+    console.log("requesting profile pic from database...");
+
+    // node-mysql expects parameter to be an array
+    profile.getProfilePic([req.params.username], function(filePath) {
+      if (filePath) {
+        res.sendFile(filePath, function(err) {
+          if (err) {
+            console.log("failed to get profile pic...");
+            console.error(err);
+            res.status(err.status).end();
+          }
+          else {
+            console.log("sent file: ", filePath);
+            res.status(200).end();
+          }
+        });
+      }
+    });
+  },
+
   storeProfilePic: function(req, res, next) {
     console.log("attempting to save profile pic to server...")
 
@@ -43,5 +64,13 @@ module.exports = {
     });
     res.status(201).send("Profile pic saved");
     res.end();
-  }
+  },
+
+  loadMemories: function(req, res, next) {
+
+  },
+
+  storeToMemories: function(req, res, next) {
+
+  },
 };
