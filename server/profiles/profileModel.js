@@ -28,7 +28,13 @@ module.exports = {
     var queryString = 'SELECT photo_filepath FROM couples WHERE username = ?;';
 
     dbConnection.query(queryString, params, function(err, results) {
-      console.log(results[0].photo_filepath);
+      if (err) {
+        console.error(err);
+      }
+      else {
+        var filePath = results[0].photo_filepath;
+        callback(filePath);
+      }
     })
   },
 

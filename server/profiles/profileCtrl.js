@@ -28,12 +28,21 @@ module.exports = {
     console.log("requesting profile pic from database...");
 
     // node-mysql expects parameter to be an array
-    profile.getProfilePic([req.params.username], function(data) {
-      if (data) {
-        console.log("profile pic retrieved!");
-
+    profile.getProfilePic([req.params.username], function(filePath) {
+      if (filePath) {
+        res.sendFile(filePath, function(err) {
+          if (err) {
+            console.log("failed to get profile pic...");
+            console.error(err);
+            res.status(err.status).end();
+          }
+          else {
+            console.log("sent file: ", filePath);
+            res.status(200).end();
+          }
+        });
       }
-    })
+    });
   },
 
   storeProfilePic: function(req, res, next) {
