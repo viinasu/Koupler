@@ -1,10 +1,11 @@
 angular.module('koupler', [
   'koupler.main',
+  'koupler.profile',
+  'koupler.chat',
   'koupler.factories',
   'koupler.activities',
   'koupler.auth',
   'koupler.match',
-  'koupler.profile',
   'ui.router',
   'ui.bootstrap',
   'ngFileUpload'
