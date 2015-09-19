@@ -30,10 +30,11 @@ module.exports = {
     var date = moment().format('MM-DD-YY');
 
     // directory where image will be saved on the server
-    var targetPath = __dirname + "/../assets/" + username + "/profile-pic/";
+    var targetPath = path.resolve(__dirname + "/../assets/" +
+                                  username + "/profile-pic");
 
     // full path to image on server
-    var filePathServer = targetPath + username + date + fileExtension;
+    var filePathServer = targetPath + "/" + username + date + fileExtension;
 
     // make parent directories if doesn't exist
     mkdirp(targetPath, function(err) {
