@@ -17,7 +17,7 @@ module.exports = function(config){
     'client/app/**/*.html',
 
     //our spec files
-    'specs/client/**/*.js',
+    'specs/client/**/*.js'
     ],
 
     exclude: [
@@ -38,7 +38,7 @@ module.exports = function(config){
 
     coverageReporter: {
       type: 'html',
-      dir: 'coverage/',
+      dir: 'coverage/'
     },
 
     port: 8080,
@@ -49,7 +49,7 @@ module.exports = function(config){
 
     autoWatch: true,
 
-    browsers: ['Chrome'],
+    browsers: ['PhantomJS'],
 
     singleRun: true
 
