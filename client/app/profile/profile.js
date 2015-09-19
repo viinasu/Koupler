@@ -7,26 +7,6 @@ angular.module('koupler.profile', [
   //placeholder for POST request until routeParam is set up
   vm.username = $state.params.username;
 
-<<<<<<< HEAD
-  vm.isAuthorized = true;
-
-  vm.testUser = {
-    username: 'testUser',
-    contactInfo: {
-      name1: 'Boozer',
-      name2: 'Woof',
-      email: 'woof@bark.com',
-      phone: 7465746374
-    },
-    profilePic: 'http://www.qykapp.com/article/content/images/2015/06/dog-1-1.jpg',
-    activities: ['eating human food', 'playing catch', 'pooping', 'hunting squirrels', 'getting into the trash', 'chasing cats', 'cuddling'],
-    profileInfo: {
-      'About Us': "We're a fun-loving couple of scruffy pups looking to go on a dog date."
-    }
-  };
-
-=======
->>>>>>> (update) now gets profileInfo on profile load, and authorizes user to edit profile if token matches profile params
   vm.goToActivities = function() {
     $state.go('activities');
   };
