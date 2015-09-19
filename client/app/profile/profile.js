@@ -2,7 +2,8 @@ angular.module('koupler.profile', [
   'ui.bootstrap'
   ])
 
-.controller('ProfileCtrl', function($scope, $state, $modal, $http, Activities, AuthTokenFactory, Upload) {
+.controller('ProfileCtrl', ['$scope', '$state', '$modal', '$http', 'Activities', 'AuthTokenFactory', 'Upload', function($scope, $state, $modal, $http, Activities, AuthTokenFactory, Upload) {
+
   var vm = this;
   //placeholder for POST request until routeParam is set up
   vm.username = $state.params.username;
@@ -58,8 +59,11 @@ angular.module('koupler.profile', [
 
   vm.chatInit = function(receiver) {
     if(!$scope.openConversation) {
-      $scope.openConversation = true; 
+      $scope.openConversation = true;
     }
     console.log($scope.openConversation);
-  }
-})
+
+  };
+
+}]);
+

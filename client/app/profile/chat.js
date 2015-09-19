@@ -1,4 +1,4 @@
-angular.module('koupler.profile')
+angular.module('koupler.chat', [])
 
 .controller('ChatCtrl', ['$scope','socket',function($scope, socket){
   var vm = this;
@@ -11,10 +11,10 @@ angular.module('koupler.profile')
     else {
       vm.openChatBox = false;
     }
-  }
+  };
   vm.closeConversation = function(){
     $scope.$parent.openConversation = false;
     console.log($scope.$parent.openConversation);
-  }
+  };
 
 }]);
