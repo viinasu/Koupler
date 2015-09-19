@@ -2,7 +2,7 @@ angular.module('koupler.profile', [
   'ui.bootstrap'
   ])
 
-.controller('ProfileCtrl', function($scope, $state, $http, Activities, AuthTokenFactory, Upload) {
+.controller('ProfileCtrl', function($scope, $state, $modal, $http, Activities, AuthTokenFactory, Upload) {
   var vm = this;
   //placeholder for POST request until routeParam is set up
   vm.username = $state.params.username;
@@ -49,21 +49,15 @@ angular.module('koupler.profile', [
 
   vm.getProfileInfo();
 
-  // vm.showEditModal = function() {
+  vm.showEditModal = function() {
+    var editModal = $modal.open({
+      animation: $scope.animationsEnabled,
+      templateUrl: 'app/profile/modal-editProfile.html',
+      controller: 'ProfileCtrl',
+    });
+  }
 
-  // }
 
-  var editModal = $modal.open({
-    animation: $scope.animationsEnabled,
-    templateUrl: 'myModalContent.html',
-    controller: 'ModalInstanceCtrl',
-    size: size,
-    resolve: {
-      items: function () {
-        return $scope.items;
-      }
-    }
-  });
 
   vm.uploadFiles = function(file) {
     vm.f = file;
