@@ -43,6 +43,6 @@
     "request": "^2.34.0"
   },
   "scripts": {
-    "test": "karma start --browsers PhantomJS"
+    "test": "karma start"
   }
 }
