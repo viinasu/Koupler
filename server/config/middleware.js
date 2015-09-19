@@ -27,5 +27,5 @@ module.exports = function (app, express) {
   require('../couples/coupleRoute.js')(coupleRouter);
   require('../activities/activityRoutes.js')(activityRouter);
   require('../profiles/profileRoute.js')(profileRouter);
-  require('../profiles/chatRoute.js')(chatRouter);
+  require('../chat/chatRoute.js')(chatRouter);
 };
