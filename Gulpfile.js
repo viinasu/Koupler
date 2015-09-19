@@ -14,18 +14,18 @@ var gulp = require('gulp'),
   filesize = require('gulp-filesize');
 
 var jsScripts = [
-  'client/app/bower_components/angular/angular.min.js',
-  'client/app/bower_components/angular-ui-router/release/angular-ui-router.min.js',
-  'client/app/bower_components/angular-bootstrap/ui-bootstrap-tpls.min.js',
-  'client/app/bower_components/ng-file-upload/ng-file-upload.min.js',
+  'client/bower_components/angular/angular.min.js',
+  'client/bower_components/angular-ui-router/release/angular-ui-router.min.js',
+  'client/bower_components/angular-bootstrap/ui-bootstrap-tpls.min.js',
+  'client/bower_components/ng-file-upload/ng-file-upload.min.js',
+  'client/app/app.js',
   'client/app/auth/auth.js',
   'client/index.js',
   'client/app/activityPickerCtrl/activityPickerCtrl.js',
   'client/app/match/match.js',
   'client/app/profile/profile.js',
   'client/app/factories/factories.js',
-  'client/app/navbar/navbar.js',
-  'client/app/app.js'
+  'client/app/navbar/navbar.js'
 ];
 
 // the paths to our app files
@@ -33,7 +33,7 @@ var paths = {
   // all our client app js files, not including 3rd party js files
   scripts: ['client/app/**/*.js', 'client/index.js'],
   html: ['client/app/**/*.html', 'client/index.html'],
-  styles: ['client/app/bower_components/bootstrap/dist/css/bootstrap.min.css','client/styles/style.css'],
+  styles: ['client/bower_components/bootstrap/dist/css/bootstrap.min.css', 'client/styles/style.css'],
   test: ['specs/**/*.js']
 };
 
@@ -53,23 +53,27 @@ gulp.task('build', function() {
   return gulp.src(jsScripts)
     .pipe(jshint('.jshintrc'))
     .pipe(jshint.reporter('default'))
-    .pipe(concat('koupler.js', {newLine: ';'}))
-    .pipe(gulp.dest('build/script'))
-    .pipe(rename({ suffix: '.min'}))
+    .pipe(concat('koupler.min.js', {newLine: '\n'}))
     .pipe(uglify())
-    .pipe(gulp.dest('build/script'))
+    .pipe(gulp.dest('build/'))
     .pipe(filesize())
     .on('error', gutil.log);
 });
 
-gulp.task('copy-html', function(){
-    gulp.src(styles)
+gulp.task('copy-css', function(){
+    gulp.src(paths.styles, { base: './'})
      .pipe(gulp.dest('./build/styles'));
 });
 
-gulp.task('copy-css', function(){
-    gulp.src('client/app/**/*.html')
-     .pipe(gulp.dest('./build/html'));
+gulp.task('copy-html', function(){
+    gulp.src('client/app/**/*.html', { base: './client/' })
+     .pipe(gulp.dest('./build/'));
+});
+
+gulp.task('move-index', function(){
+    gulp.src('client/index_gulp.html')
+     .pipe(rename('index.html'))
+     .pipe(gulp.dest('./build/'));
 });
 
 gulp.task('start', function() {
@@ -87,4 +91,4 @@ gulp.task('serve', function() {
 });
 
 
-gulp.task('default', ['clean', 'karma', 'build', 'copy-html', 'copy-css']);
+gulp.task('default', ['karma', 'build', 'copy-html', 'copy-css', 'move-index']);
