@@ -31,6 +31,9 @@ angular.module('koupler', [
         },
         'memories@profile': {
           templateUrl:'app/profile/partial-memories.html'
+        },
+        'chat@profile': {
+          templateUrl:'app/profile/partial-chat.html'
         }
       },
       authenticate: true,
@@ -51,7 +54,6 @@ angular.module('koupler', [
       controller: 'ActivityPickerCtrl',
       authenticate: true,
     });
-
 
     // We add our $httpInterceptor into the array
     // of interceptors. Think of it like middleware for your ajax calls

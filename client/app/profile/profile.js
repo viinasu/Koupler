@@ -5,7 +5,6 @@ angular.module('koupler.profile', [])
   //placeholder for POST request until routeParam is set up
   vm.username = $state.params.username;
 
-
   vm.isAuthorized = true;
 
   vm.testUser = {
@@ -61,4 +60,8 @@ angular.module('koupler.profile', [])
       });
     }
   };
-});
+
+  vm.chatInit = function(receiver) {
+    $scope.openConversation = true;
+  }
+})
