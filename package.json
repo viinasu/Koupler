@@ -28,10 +28,17 @@
     "bcryptjs": "2.2.1",
     "bluebird": "1.0.8",
     "body-parser": "^1.5.2",
+    "browser-sync": "^2.9.3",
     "express": "^4.13.3",
     "express-jwt": "3.0.1",
     "express-session": "^1.7.2",
     "formidable": "^1.0.17",
+    "gulp-clean": "^0.3.1",
+    "gulp-concat": "^2.6.0",
+    "gulp-filesize": "0.0.6",
+    "gulp-jshint": "^1.11.2",
+    "gulp-rename": "^1.2.2",
+    "gulp-uglify": "^1.4.1",
     "jsonwebtoken": "5.0.5",
     "karma": "0.13.9",
     "mkdirp": "^0.5.1",
@@ -43,6 +50,6 @@
     "request": "^2.34.0"
   },
   "scripts": {
-    "test": "karma start --browsers PhantomJS"
+    "test": "karma start"
   }
 }

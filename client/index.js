@@ -1,6 +1,6 @@
 angular.module('koupler.main', [])
 
-.controller('MainCtrl', function($rootScope, $scope, $state) {
+.controller('MainCtrl', ['$rootScope', '$scope', '$state', function($rootScope, $scope, $state) {
 
   vm = this;
 
@@ -14,4 +14,4 @@ angular.module('koupler.main', [])
     $state.go(link);
   };
 
-});
+}]);

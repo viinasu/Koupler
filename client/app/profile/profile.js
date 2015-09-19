@@ -1,6 +1,6 @@
 angular.module('koupler.profile', [])
 
-.controller('ProfileCtrl', function($scope, $state, $http, Activities, AuthTokenFactory, Upload) {
+.controller('ProfileCtrl', ['$scope', '$state', '$http', 'Activities', 'AuthTokenFactory', 'Upload', function($scope, $state, $http, Activities, AuthTokenFactory, Upload) {
   var vm = this;
   //placeholder for POST request until routeParam is set up
   vm.username = $state.params.username;
@@ -61,4 +61,4 @@ angular.module('koupler.profile', [])
       });
     }
   };
-});
+}]);

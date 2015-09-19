@@ -9,7 +9,7 @@ angular.module('koupler', [
   'ui.bootstrap',
   'ngFileUpload'
 ])
-.config(function($stateProvider, $urlRouterProvider, $httpProvider) {
+.config(['$stateProvider', '$urlRouterProvider', '$httpProvider', function($stateProvider, $urlRouterProvider, $httpProvider) {
 
   $urlRouterProvider.otherwise('/');
 
@@ -56,7 +56,7 @@ angular.module('koupler', [
     // We add our $httpInterceptor into the array
     // of interceptors. Think of it like middleware for your ajax calls
     $httpProvider.interceptors.push('AttachTokens');
-})
+}])
 .factory('AttachTokens', ['$window', function($window) {
   // this is an $httpInterceptor
   // its job is to stop all out going request
@@ -74,7 +74,7 @@ angular.module('koupler', [
   };
   return attach;
 }])
-.run(function($rootScope, $state, $location, $window, AuthTokenFactory) {
+.run(['$rootScope', '$state', '$location', '$window', 'AuthTokenFactory', function($rootScope, $state, $location, $window, AuthTokenFactory) {
   //since routing is based on state (ui.router), the $rootScope needs to check for
   //a state change rather than a route change in order to check authentication
   $rootScope.$on('$stateChangeStart', function(evt, next, current) {
@@ -83,5 +83,5 @@ angular.module('koupler', [
     //   $location.path('/');
     // }
   });
-});
+}]);
 
