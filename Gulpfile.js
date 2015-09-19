@@ -18,13 +18,9 @@ var jsScripts = [
   'client/bower_components/angular-bootstrap/ui-bootstrap-tpls.min.js',
   'client/bower_components/ng-file-upload/ng-file-upload.min.js',
   'client/app/app.js',
-  'client/app/auth/auth.js',
   'client/index.js',
-  'client/app/activityPickerCtrl/activityPickerCtrl.js',
-  'client/app/match/match.js',
-  'client/app/profile/profile.js',
-  'client/app/factories/factories.js',
-  'client/app/navbar/navbar.js'
+  'client/app/**/*.js'
+
 ];
 
 // the paths to our app files
