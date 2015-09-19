@@ -62,6 +62,9 @@ angular.module('koupler.profile', [])
   };
 
   vm.chatInit = function(receiver) {
-    $scope.openConversation = true;
+    if(!$scope.openConversation) {
+      $scope.openConversation = true; 
+    }
+    console.log($scope.openConversation);
   }
 })

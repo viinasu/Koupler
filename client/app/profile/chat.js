@@ -12,5 +12,9 @@ angular.module('koupler.profile')
       vm.openChatBox = false;
     }
   }
+  vm.closeConversation = function(){
+    $scope.$parent.openConversation = false;
+    console.log($scope.$parent.openConversation);
+  }
 
 }]);

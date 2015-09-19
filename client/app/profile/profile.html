@@ -13,7 +13,7 @@
   <h4>Upload on file select</h4>
   <button type="file" ng-model="file" ngf-select="ctrl.uploadFiles($file)" accept="image/*" ngf-max-height="1000" ngf-max-size="1MB">Choose File</button>
   <div>{{ctrl.errorMsg}}</div>
-
+  {{openConversation}}
  <button class="signoutButton" ng-click="ctrl.chatInit(user)">Start Chatting</button>
  <!-- need to verify the username's identifier -->
   <img ngf-src="file">
@@ -21,5 +21,5 @@
   <div class="col-lg-6">
     <div ui-view="memories"/>
   </div> -->
-  <div ng-show="openConversation" ui-view="chat"/>
+  <div ng-model="openConversation" ng-show="openConversation" ui-view="chat"/>
 </div>
