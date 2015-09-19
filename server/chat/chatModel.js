@@ -2,7 +2,7 @@ var dbConnection = require('../db/index.js');
 
 //processParams takes two usernames and returns two sorted userids 
 function processParams (unprocessedParams, callback) {
-  var queryString = 'SELECT id FROM couples WHERE username = (?) || username = (?);';
+  var queryString = 'SELECT id FROM couples WHERE username = (?) UNION ALL SELECT id FROM couples WHERE username = (?);';
   dbConnection.query(queryString, [unprocessedParams.to, unprocessedParams.from], function(err, data) {
 
     if (err) console.log("query error", err);
@@ -19,7 +19,6 @@ function processParams (unprocessedParams, callback) {
         callback([ [receiverId + ":" + senderId], [senderId] ]);
       }
     }
-    
   });
 
 }
