@@ -5,13 +5,13 @@ angular.module('koupler.match',[])
   
   var token = AuthTokenFactory.getToken();
 
-  $http({
-      url: '/activities/match'
-    , method: 'GET'
-    , params: {token: token}
-  }).then(
-    function(response) {
-      $scope.data = response.data.couple;
-    }
-  );
+  // $http({
+  //     url: '/activities/match'
+  //   , method: 'GET'
+  //   , params: {token: token}
+  // }).then(
+  //   function(response) {
+  //     $scope.data = response.data.couple;
+  //   }
+  // );
 });

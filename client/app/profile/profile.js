@@ -1,10 +1,13 @@
-angular.module('koupler.profile', [])
+angular.module('koupler.profile', [
+  'ui.bootstrap'
+  ])
 
 .controller('ProfileCtrl', function($scope, $state, $http, Activities, AuthTokenFactory, Upload) {
   var vm = this;
   //placeholder for POST request until routeParam is set up
   vm.username = $state.params.username;
 
+<<<<<<< HEAD
   vm.isAuthorized = true;
 
   vm.testUser = {
@@ -22,6 +25,8 @@ angular.module('koupler.profile', [])
     }
   };
 
+=======
+>>>>>>> (update) now gets profileInfo on profile load, and authorizes user to edit profile if token matches profile params
   vm.goToActivities = function() {
     $state.go('activities');
   };
@@ -30,19 +35,35 @@ angular.module('koupler.profile', [])
 
   vm.getProfileInfo = function() {
     var token = AuthTokenFactory.getToken();
+    console.log(token);
     //GET request should respond with user's profile picture, interests, about, memories, etc.
-    $http.get('/profile', {params:
-      {token: token}
-    })
+    $http.get('/profile/' + vm.username)
       .then(function(response) {
-        if (response.data.isAuthorized) {
-          vm.isAuthorized = true;
-        }
-        vm.profileData = response.data; //looks like [{about us: "", username: ""}]
+        if (response.data[0].isAuthorizedToEdit) {
+          vm.isAuthorizedToEdit = true;
+        };
+        console.log("getProfileInfo:", response.data);
+        vm.profileData = response.data[0];
       });
   };
 
   vm.getProfileInfo();
+
+  // vm.showEditModal = function() {
+
+  // }
+
+  var editModal = $modal.open({
+    animation: $scope.animationsEnabled,
+    templateUrl: 'myModalContent.html',
+    controller: 'ModalInstanceCtrl',
+    size: size,
+    resolve: {
+      items: function () {
+        return $scope.items;
+      }
+    }
+  });
 
   vm.uploadFiles = function(file) {
     vm.f = file;
