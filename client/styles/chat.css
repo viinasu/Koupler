@@ -29,7 +29,7 @@ img {
     max-width: 100%;
 }
 
-input {
+.chatInput {
   border: 0;
   color: inherit;
     font-family: inherit;

@@ -8,6 +8,7 @@ module.exports = function (app, express) {
   var coupleRouter = express.Router();
   var activityRouter = express.Router();
   var profileRouter = express.Router();
+  var chatRouter = express.Router();
 
   // Middleware to parse request body
   app.use(morgan('dev'));
@@ -21,10 +22,11 @@ module.exports = function (app, express) {
 
   app.use('/couples', coupleRouter);
   app.use('/activities', activityRouter);
-  app.use('/profile', profileRouter); //CHANGE TO PROFILE
+  app.use('/profile', profileRouter);
+  app.use('/chat', chatRouter);
 
   require('../couples/coupleRoute.js')(coupleRouter);
   require('../activities/activityRoutes.js')(activityRouter);
   require('../profiles/profileRoute.js')(profileRouter);
-
+  require('../chat/chatRoute.js')(chatRouter);
 };
