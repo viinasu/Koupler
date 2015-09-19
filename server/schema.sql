@@ -165,9 +165,9 @@ CREATE TABLE messages (
 /***********************************/
 
 -- password for both users is 1234
-INSERT INTO couples (username, hash, person_1_last_name, person_1_first_name, person_2_last_name, person_2_first_name, email, phone, likes, about_us, photo_filepath)
-VALUES ("pitts", "$2a$10$OkchGISZINGB1WVlQg4/5.kQPWm.JDwCsC7TCjaKGgD3c6m5J0rZC", "Pitt", "Brad", "Jolie", "Angelina", "brangelina@hollywood.com", 1234567890, 0, "We have six children. Max, Pax, Zahara, Shiloh, Knox, and Vivienne", "add/path/to/pic.jpg"),
-       ("beckhams", "$2a$10$OkchGISZINGB1WVlQg4/5.kQPWm.JDwCsC7TCjaKGgD3c6m5J0rZC", "Beckham", "Victoria", "Beckham", "David", "soccer@euroleague.com", 1234567890, 0, "We have four children. Brooklyn, Romeo, Cruz, and Harper", "add/path/to/pic.jpg"),
+INSERT INTO couples (username, hash, person_1_last_name, person_1_first_name, person_2_last_name, person_2_first_name, email, phone, likes, about_us, photo_filepath, location_city, location_zip)
+VALUES ("pitts", "$2a$10$OkchGISZINGB1WVlQg4/5.kQPWm.JDwCsC7TCjaKGgD3c6m5J0rZC", "Pitt", "Brad", "Jolie", "Angelina", "brangelina@hollywood.com", 1234567890, 0, "We have six children. Max, Pax, Zahara, Shiloh, Knox, and Vivienne", "add/path/to/pic.jpg", "San Francisco", 94108),
+       ("beckhams", "$2a$10$OkchGISZINGB1WVlQg4/5.kQPWm.JDwCsC7TCjaKGgD3c6m5J0rZC", "Beckham", "Victoria", "Beckham", "David", "soccer@euroleague.com", 1234567890, 0, "We have four children. Brooklyn, Romeo, Cruz, and Harper", "add/path/to/pic.jpg", "San Francisco", 94104),
        ("bowzers", "bowzers", "duffy", "scruffy", "duffy", "muffy", "justbeindogs@dogs.com", 5748574857, 2, "Just a couple of dogs, bein' dogs.", "add/path/to/pic.jpg", "Los Angeles", 90210);
 
 INSERT INTO activities (activity_name, activity_type)
