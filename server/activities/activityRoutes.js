@@ -1,6 +1,6 @@
 var activityCtrl = require('./activityCtrl');
 
 module.exports = function(app) {
-  app.get('/match', activityCtrl.getActivities);
-  app.post('/match', activityCtrl.postActivity);
+  // app.get('/match', activityCtrl.getActivities);
+  app.post('/match', activityCtrl.getMatches);
 };

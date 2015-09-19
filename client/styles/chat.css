@@ -1,0 +1,118 @@
+* {
+  -moz-box-sizing: border-box; 
+  -webkit-box-sizing: border-box; 
+  box-sizing: border-box;
+}
+body {
+  font-family: sans-serif;
+}
+
+.ch-box {
+  width:250px;
+  height:300px;
+  border:1px solid #666;
+  z-index:100;
+  box-shadow:1px 2px 15px #bbb;
+  position:fixed;
+  bottom:0px;
+  right: 0;
+}
+
+.ch-container {
+  position:relative;
+  height:100%;
+}
+
+.ch-header {
+  background:#444;
+  color:#fff;
+  padding:10px;
+  border-bottom:2px solid #2bd43b;
+  font-size: 13px;
+  cursor:pointer;
+}
+
+.ch-actions {
+  background:#ccc;
+  padding:5px;
+  box-shadow: 0px 1px 2px #999;
+  position:relative;
+}
+
+.ch-actions ul {
+  margin:0;
+  padding:0;
+  list-style-type:none;
+  overflow:hidden;
+}
+.ch-actions li {
+  float:left;
+  margin:5px;
+  font-size:11px;
+}
+.ch-actions li.settings {
+  float:right;
+}
+
+.ch-body {
+  background:#eee;
+  overflow-y:scroll;
+  height:188px;
+}
+
+.ch-chat {
+  position:absolute;
+  bottom:0;
+  border-top:1px solid #ccc;
+  width:100%;
+}
+.ch-chat input {
+  padding:10px;
+  border:0;
+  width:100%;
+}
+
+.ch-convo {
+  position:relative;
+  overflow:hidden;
+  margin-bottom:5px;
+}
+
+.ch-convo .ch-text {
+  padding:10px;
+  background:#fff;
+  margin:5px;
+  width:80%;
+  float:left;
+  box-shadow: 0 1px 2px #ccc;
+  font-size:13px;
+}
+
+.ch-convo p {
+  margin-top:0;
+  margin-bottom:5px;
+}
+.ch-convo small {
+  color:#999;
+}
+
+.ch-convo .ch-face {
+  position:absolute;
+  bottom:5px;
+  right:10px;
+  border-left:5px solid #fff;
+  background:#fff;
+  height:30px;
+  box-shadow: 2px 0 3px #ccc;
+}
+
+.ch-them .ch-text {
+  float:right;
+}
+
+.ch-them .ch-face {
+  left: 10px;
+  border-left:0;
+  box-shadow: -2px 0 3px #ccc;
+  width:35px;
+}

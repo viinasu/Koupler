@@ -1,0 +1,51 @@
+<div class="ch-box" ng-controller="ChatCtrl as chat">
+  <div class="ch-container">
+  <!-- =============================== -->
+    <div class="ch-header" ng-click="chat.open()">
+      <span class="ch-name">John Doe</span>
+    </div>
+    <!-- =============================== -->
+    <div class="ch-actions"> <!--ch-actions -->
+      <ul>
+        <li><a href="#">Video</a></li>
+        <li><a href="#">Call</a></li>
+        <li class="settings"><a href="#">Settings</a></li>
+      </ul>
+    </div><!-- end of ch-actions -->
+    <!-- =============================== -->
+    <div class="ch-body"> <!-- message body -->
+      <div class="ch-convo"> <!--conversation-->
+        <!--Message-->
+        <div class="ch-text">
+          <p>Lorem ipsum dolor sit amet consecteur. Lorem ipsum dolor sit amet consecteur.</p>
+          <small>33 mins ago</small>
+        </div> <!-- end of ch-body -->
+
+        <div class="ch-face"> <!-- username profile img-->
+          <img src="http://lorempixel.com/30/30/sports" />
+        </div>
+      </div>
+      <div class="ch-convo ch-them"> 
+        <div class="ch-text">
+          <p>Lorem ipsum dolor sit amet consecteur. Lorem ipsum dolor sit amet consecteur.</p>
+          <small>31 mins ago</small>
+        </div>
+        <div class="ch-face"> <!-- receiver profile img-->
+          <img src="http://lorempixel.com/30/30/cats" />
+        </div>
+      </div>
+      <div class="ch-convo">
+        <div class="ch-text">
+          <p>Lorem ipsum dolor sit amet consecteur. Lorem ipsum dolor sit amet consecteur.</p>
+          <small>30 mins ago</small>
+        </div>
+        <div class="ch-face">
+          <img src="http://lorempixel.com/30/30/sports" />
+        </div>
+      </div>
+    </div>
+    <div class="ch-chat">
+      <input type="text" placeholder="Send a message" />
+    </div>
+  </div>
+</div>

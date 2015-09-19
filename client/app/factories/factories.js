@@ -33,11 +33,13 @@ angular.module('koupler.factories', [])
       $window.localStorage.setItem(key, token)
     } else {
       $window.localStorage.removeItem(key);
+      console.log($window.localStorage.getItem(key));
     }
   };
 
   var isAuth = function() {
-    return !! $window.localStorage.getItem(key);
+    console.log('in isAuth')
+    return !!$window.localStorage.getItem(key);
   };
 
   return {
@@ -45,4 +47,41 @@ angular.module('koupler.factories', [])
     setToken: setToken,
     isAuth: isAuth
   };
-});
+})
+
+.factory('socket', ['$rootScope', function ($rootScope) {
+  var socket = io.connect();
+
+  return {
+    on: function (eventName, callback) {
+      function wrapper() {
+        var args = arguments;
+        $rootScope.$apply(function () {
+          callback.apply(socket, args);
+        });
+      }
+
+      socket.on(eventName, wrapper);
+
+      return function () {
+        socket.removeListener(eventName, wrapper);
+      };
+    },
+
+    emit: function (eventName, data, callback) {
+      socket.emit(eventName, data, function () {
+        var args = arguments;
+        $rootScope.$apply(function () {
+          if(callback) {
+            callback.apply(socket, args);
+          }
+        });
+      });
+    }
+  };
+}]);
+
+
+
+
+

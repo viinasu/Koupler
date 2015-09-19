@@ -19,6 +19,7 @@ module.exports = {
       if(err) console.log(err);
 
       if(data) {
+        console.log(data);
         res.send('Couple activity logged successfully');
       }
     });
@@ -28,8 +29,18 @@ module.exports = {
     var username = getUsername(req.query.token);
     
     return activity.getActivities([username, username], function(err, data) {
-      var couple = data[Math.floor(Math.random() * (data.length - 1))];
+      // var couple = data[Math.floor(Math.random() * (data.length - 1))];
+      console.log(data);
       res.send({couple: couple});
     });
+  },
+
+  getMatches: function(req, res, next) {
+    var username = getUsername(req.body.token);
+    var activityChosen = req.body.activity.name;
+
+    return activity.getMatches([ activityChosen ], function(err, data) {
+      res.send(data);
+    })
   }
 };
