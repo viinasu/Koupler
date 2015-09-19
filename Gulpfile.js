@@ -10,7 +10,6 @@ var gulp = require('gulp'),
   uglify = require('gulp-uglify'),
   clean = require('gulp-clean'),
   gutil = require('gulp-util'),
-  jshint = require('gulp-jshint'),
   filesize = require('gulp-filesize');
 
 var jsScripts = [
@@ -33,7 +32,7 @@ var paths = {
   // all our client app js files, not including 3rd party js files
   scripts: ['client/app/**/*.js', 'client/index.js'],
   html: ['client/app/**/*.html', 'client/index.html'],
-  styles: ['client/bower_components/bootstrap/dist/css/bootstrap.min.css', 'client/styles/style.css'],
+  styles: ['client/bower_components/bootstrap/dist/css/bootstrap.min.css', 'client/styles/*.css'],
   test: ['specs/**/*.js']
 };
 
@@ -48,11 +47,9 @@ gulp.task('karma', shell.task([
   'karma start'
 ]));
 
-gulp.task('build', function() {
+gulp.task('convert-js', function() {
   //specifc order
   return gulp.src(jsScripts)
-    .pipe(jshint('.jshintrc'))
-    .pipe(jshint.reporter('default'))
     .pipe(concat('koupler.min.js', {newLine: '\n'}))
     .pipe(uglify())
     .pipe(gulp.dest('build/'))
@@ -76,19 +73,9 @@ gulp.task('move-index', function(){
      .pipe(gulp.dest('./build/'));
 });
 
-gulp.task('start', function() {
-  bs({
-    notify: true,
-    // address for server,
-    injectChanges: true,
-    files: paths.scripts.concat(paths.html, paths.styles),
-    proxy: 'localhost:3000'
-  });
-});
-
 gulp.task('serve', function() {
   nodemon({script: 'index.js', ignore: 'node_modules/**/*.js'});
 });
 
-
-gulp.task('default', ['karma', 'build', 'copy-html', 'copy-css', 'move-index']);
+gulp.task('default', ['convert-js', 'copy-html', 'copy-css', 'move-index']);
+gulp.task('build', ['karma', 'convert-js', 'copy-html', 'copy-css', 'move-index']);
