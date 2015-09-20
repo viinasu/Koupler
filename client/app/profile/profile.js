@@ -22,7 +22,7 @@ angular.module('koupler.profile', [
       .then(function(response) {
         if (response.data[0].isAuthorizedToEdit) {
           vm.isAuthorizedToEdit = true;
-        };
+        }
         console.log("getProfileInfo:", response.data);
         vm.profileData = response.data[0];
       });
@@ -36,7 +36,7 @@ angular.module('koupler.profile', [
       templateUrl: 'app/profile/modal-editProfile.html',
       controller: 'ProfileCtrl',
     });
-  }
+  };
 
 
 
