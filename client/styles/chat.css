@@ -1,18 +1,18 @@
 
-a { text-decoration: none; }
+.ch-box a { text-decoration: none; }
 
-fieldset {
+.ch-box fieldset {
   border: 0;
   margin: 0;
   padding: 0;
 }
 
-h4, h5 {
+.ch-box h4, h5 {
   line-height: 1.5em;
   margin: 0;
 }
 
-hr {
+.ch-box hr {
   background: #e9e9e9;
     border: 0;
     -moz-box-sizing: content-box;
@@ -22,7 +22,7 @@ hr {
     min-height: 1px;
 }
 
-img {
+.ch-box img {
     border: 0;
     display: block;
     height: auto;
@@ -38,7 +38,7 @@ img {
     margin: 0;
 }
 
-p { margin: 0; }
+.ch-box p { margin: 0; }
 
 .clearfix { *zoom: 1; } /* For IE 6/7 */
 .clearfix:before, .clearfix:after {
