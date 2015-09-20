@@ -33,5 +33,5 @@ bower_components/
 client/lib
 
 # Profile-pics,Memories in server/assets
-server/assets/
+server/assets/*/profile-pic/
 

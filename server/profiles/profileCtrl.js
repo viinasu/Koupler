@@ -23,7 +23,7 @@ module.exports = {
         console.log("profile data received!", data);
         if (requestor === username) {
           data[0].isAuthorizedToEdit = true;
-        };
+        }
         res.send(data);
       }
     });
