@@ -53,6 +53,10 @@ html, .container-fluid {
   font-family: 'Lato', sans-serif;
 }
 
+body > div:first-of-type {
+  padding-top: 50px;
+}
+
 .profile-view {
   margin-top: 40px;
 }
