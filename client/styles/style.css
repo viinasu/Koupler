@@ -53,13 +53,17 @@ html, .container-fluid {
   font-family: 'Lato', sans-serif;
 }
 
+body > div:first-of-type {
+  padding-top: 50px;
+}
+
 .profile-view {
   margin-top: 40px;
 }
 
 #signin {
-  margin-top: 5px;
-  margin-left: 870px;
+  margin-top: -45px;
+  float: right;
 }
 
 #signup {
@@ -144,7 +148,7 @@ h3, p {
 }
 
 .field:focus {
-  border-style: none;
+  border-color: #172A40;
   outline: none;
 }
 
@@ -167,7 +171,7 @@ h3, p {
   color: white;
   border-style: solid;
   border-color: #58d68d;
-  border-radius: 2px;
+  border-radius: 4px;
 }
 
 #signinbutton {
@@ -180,7 +184,7 @@ h3, p {
   color: white;
   border-style: solid;
   border-color: #58d68d;
-  border-radius: 2px;
+  border-radius: 4px;
 }
 
 #goToDashboard, #signout {
@@ -217,6 +221,10 @@ h3, p {
   color: white;
 }
 
+.navbar .btn {
+  margin-left: 10px;
+}
+
 .activities {
   font-weight: 300;
   width: 500px;
@@ -226,20 +234,20 @@ h3, p {
 }
 
 .activity {
-  font-weight: 300;
   display: inline-block;
-  width: 100px;
-  height: 3em;
-  border-width: 1px;
-  border-style: solid;
-  border-radius: 15px;
-  border-color: transparent;
-  padding: 10px 3px 6px 3px;
-  text-align: center;
-  /*float: left;*/
+  font-weight: 300;
+  font-size: 16px;
   margin: 10px;
-  color: white;
+  width: 100px;
+  height: 50px;
+  line-height: 42px;
   background-color: #58d68d;
+  color: white;
+  border-style: solid;
+  border-color: #58d68d;
+  border-radius: 4px;
+  text-align: center;
+  cursor: pointer;
 }
 
 #half-column {
