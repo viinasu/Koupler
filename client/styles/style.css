@@ -144,7 +144,7 @@ h3, p {
 }
 
 .field:focus {
-  border-style: none;
+  border-color: #172A40;
   outline: none;
 }
 

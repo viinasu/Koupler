@@ -44,15 +44,16 @@ module.exports = {
     var file = params[1];
     var fileExtension = path.extname(file.name);
     var date = moment().format('MM-DD-YY');
+    var fileName = username + date + fileExtension;
 
-    // directory where image will be saved on the server
-    var targetPath = path.resolve(__dirname + "/../assets/" +
-                                  username + "/profile-pic");
+    // path to directory where profile-pic is saved
+    var targetPath = path.resolve(process.env.PWD + "/server/assets/" +
+                                  username + "/profile-pic/");
 
-    // full path to image on server
-    var filePathServer = targetPath + "/" + username + date + fileExtension;
+    // path to profile-pic on server
+    var filePathServer = targetPath + "/" + fileName;
 
-    // make parent directories if doesn't exist
+    // create directories if it doesn't exist
     mkdirp(targetPath, function(err) {
       if (err) {
         console.error(err);
@@ -67,7 +68,11 @@ module.exports = {
     });
 
     var queryString = 'UPDATE couples SET photo_filepath = ? WHERE username = ?;';
-    dbConnection.query(queryString, [filePathServer, username], callback);
+
+    // express serves static files in server/assets. Path to pic need to be
+    // relative from the asset folder
+    var picFilePath = "./" + username + "/profile-pic/" + fileName;
+    dbConnection.query(queryString, [picFilePath , username], callback);
   },
 
   getMemories: function(callback) {
