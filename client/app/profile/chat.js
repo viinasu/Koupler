@@ -5,7 +5,7 @@ angular.module('koupler.chat', [])
   vm.openChatBox = false;
   vm.sender = $scope.$parent.sender;
   vm.chatStart = true;
-  vm.tempMsgStorage = [];
+  vm.tempMsgStorage = $scope.$parent.chatData;
 
   vm.closeBox = function() {
     vm.chatStart = false;

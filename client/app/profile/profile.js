@@ -63,7 +63,7 @@ angular.module('koupler.profile', [
 
   vm.chatInit = function() {
     $scope.openConversation = true;
-
+// [{message: xxx, created_on: time, username: sender's name}]
     //get chat history
     $http.get('/chat', {params: {to: vm.username, from: $scope.sender}})
       .then(function(response) {
