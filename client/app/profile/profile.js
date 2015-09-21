@@ -39,7 +39,7 @@ angular.module('koupler.profile', [
   };
 
 
-
+  console.log('vm.username', vm.username);
   vm.uploadFiles = function(file) {
     vm.f = file;
     if (file && !file.$error) {
@@ -63,13 +63,9 @@ angular.module('koupler.profile', [
 
   vm.chatInit = function() {
     $scope.openConversation = true;
-    //get sender's username
-    //ctrl.profileData.username
-    // profileData.person_1_first_name
-    //                    2 last name
-    
+
     //get chat history
-    $http.get('/chat')
+    $http.get('/chat', {params: {to: vm.username, from: $scope.sender}})
       .then(function(response) {
         if (response.data[0].isAuthorizedToEdit) {
           vm.isAuthorizedToEdit = true;
