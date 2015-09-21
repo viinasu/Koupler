@@ -7,7 +7,7 @@ angular.module('koupler.profile', [
   var vm = this;
   //placeholder for POST request until routeParam is set up
   vm.username = $state.params.username;
-  $scope.sender = $scope.$parent.sender;
+  $scope.sender = $scope.$parent.loginUser;
 
   vm.goToActivities = function() {
     $state.go('activities');

@@ -17,7 +17,6 @@ angular.module('koupler.auth', [])
         $state.go('profile', {username: username});
         console.log('sign in resp', response.data);
         // $location.path('/profile/' + username);
-        $scope.$parent.sender = username;
       },
       function(err){
         console.log(err);
@@ -40,7 +39,6 @@ angular.module('koupler.auth', [])
         AuthTokenFactory.setToken(response.data.token);
         var username = response.data.username;
         $state.go('profile', {username: username});
-        $scope.$parent.sender = username;
       },
       function(err){
         console.log(err);
